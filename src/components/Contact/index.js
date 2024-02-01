@@ -166,6 +166,8 @@ const Contact = () => {
         <ContactForm ref={form} onSubmit={handleSubmit}>
           <Desc id="user-detail-intro">Email:- {Bio.email}</Desc>
           <Desc id="user-detail-intro">Phone:- {Bio.contact}</Desc>
+          <Desc ></Desc>
+      
           <Desc>
           <ResumeButton   
               href={Bio.resume}
