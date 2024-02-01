@@ -35,7 +35,8 @@ const Navbar = () => {
               cursor: "pointer",
             }}
           >
-            <DiCssdeck size="3rem" /> <Span class="nav-link home">Portfolio</Span>
+            <DiCssdeck size="3rem" />{" "}
+            <Span class="nav-link home">Portfolio</Span>
           </a>
         </NavLogo>
         <MobileIcon>
@@ -55,6 +56,7 @@ const Navbar = () => {
           <NavLink href="#projects" class="nav-link projects">
             Projects
           </NavLink>
+          <NavLink href="#statistics">Statistics</NavLink>
           <NavLink href="#education" class="nav-link education">
             Education
           </NavLink>

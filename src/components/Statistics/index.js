@@ -62,7 +62,7 @@ const Desc = styled.div`
   }
 `;
 
-const ContactForm = styled.form`
+const StatisticsBox = styled.form`
   width: 95%;
   max-width: 600px;
   display: flex;
@@ -138,49 +138,39 @@ const ContactButton = styled.input`
   font-size: 18px;
   font-weight: 600;
 `;
+const StatisticsImage = styled.img`
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  @media (max-width: 768px) {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+`;
 
-const Contact = () => {
+const Statistics = () => {
   //hooks
   const [open, setOpen] = React.useState(false);
-  const form = useRef();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // emailjs.sendForm('service_tox7kqs', 'template_nv7k7mj', form.current, 'SybVGsYS52j2TfLbi')
-    //   .then((result) => {
-    //     setOpen(true);
-    //     form.current.reset();
-    //   }, (error) => {
-    //     console.log(error.text);
-    //   });
-  };
 
   return (
-    <Container id="contact">
+    <Container id="statistics">
       <Wrapper>
-        <Title>Contact</Title>
-        <Desc>
-          Feel free to reach out to me for any questions or opportunities!
-        </Desc>
-
-        <ContactForm ref={form} onSubmit={handleSubmit}>
-          <Desc id="user-detail-intro">Email:- {Bio.email}</Desc>
-          <Desc id="user-detail-intro">Phone:- {Bio.contact}</Desc>
-          <Desc ></Desc>
-      n
+        <Title>Statistics</Title>
+        <StatisticsBox>
           <Desc>
-          <ResumeButton   
-              href={Bio.resume}
-              target="display"
-              download="/src/resume/Geetesh Mehuria-Resume.pdf"
-              class="nav-link resume"
-              id="resume-button-2"
-            >
-              Check Resume
-            </ResumeButton>
+            <StatisticsImage src={Bio.githubLanguge} alt="" />
           </Desc>
-         
-        </ContactForm>
+          <Desc>
+            <StatisticsImage src={Bio.githubStats} alt="" />
+          </Desc>
+
+          <Desc>
+            <StatisticsImage src={Bio.githubStreak} alt="" />
+          </Desc>
+          <Desc></Desc>
+        </StatisticsBox>
         <Snackbar
           open={open}
           autoHideDuration={6000}
@@ -193,4 +183,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Statistics;

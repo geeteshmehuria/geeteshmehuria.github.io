@@ -9,8 +9,14 @@ export const Bio = {
   linkedin: "https://www.linkedin.com/in/geetesh-mehuria/",
   insta: "https://www.instagram.com/this_is_geetesh_/",
   facebook: "https://www.facebook.com/m.geetesh/",
-  email:"geeteshmaihuria@gmail.com",
-  contact:"8299004960"
+  email: "geeteshmaihuria@gmail.com",
+  contact: "8299004960",
+  githubStreak:
+    "https://github-readme-streak-stats.herokuapp.com/?user=geeteshmehuria&",
+  githubStats:
+    "https://github-readme-stats.vercel.app/api?username=geeteshmehuria&show_icons=true&locale=en",
+  githubLanguge:
+    "https://github-readme-stats.vercel.app/api/top-langs?username=geeteshmehuria&show_icons=true&locale=en&layout=compact",
 };
 
 export const skills = [
@@ -40,7 +46,7 @@ export const skills = [
         image:
           "https://camo.githubusercontent.com/0568e2de313626b2bd9b96f326941b012d45e9a4db1a23aa78bd8036207e57f8/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f7461696c77696e646373732f7461696c77696e646373732d69636f6e2e737667",
       },
-      
+
       {
         name: "Bootstrap",
         image:
@@ -56,7 +62,7 @@ export const skills = [
         image:
           "https://d33wubrfki0l68.cloudfront.net/0834d0215db51e91525a25acf97433051f280f2f/c30f5/img/redux.svg",
       },
-      
+
       // {
       //   name: "Material UI",
       //   image:
@@ -409,7 +415,8 @@ export const education = [
     date: "Aug 2016 - Oct 2020",
     grade: "78%",
     // desc: "I completed my class 10 education at Methodist School, Dankuni, where I studied Science with Computer Application.",
-    degree: "Bachelor of Engineering, Electronics and Communication Engineering",
+    degree:
+      "Bachelor of Engineering, Electronics and Communication Engineering",
   },
 ];
 
