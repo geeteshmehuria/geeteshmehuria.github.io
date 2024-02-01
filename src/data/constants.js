@@ -428,7 +428,7 @@ export const projects = [
     description:
       "Developed a full-stack web application inspired by Samrat Hospital's commitment to unparalleled healthcare with a compassionate touch. Mirroring their state-of-the-art facility, our application combines cutting-edge technology to deliver a seamless user experience, embracing the belief that healing extends beyond the body to nurture the spirit. Welcome to a digital space dedicated to holistic well-being.",
     image:
-      "https://github.com/geeteshmehuria/c-sharp-samrat-2345/assets/70647591/5c4304de-6ada-44f6-a074-3be63d9df3b3",
+      "https://github.com/geeteshmehuria/c-sharp-samrat-2345/assets/70647591/edb60b30-2010-4bfb-9cf6-77abe5d4ff1e",
     tags: [
       "HTML",
       "CSS",
@@ -465,7 +465,7 @@ export const projects = [
     description:
       "Travelo Discover the Ultimate Sporting Experience with Travelo – Your One-Stop Destination for Booking Unforgettable Sporting Events.. Elevate your day excitement by securing your tickets effortlessly with us. Your journey to the heart of the action begins here.",
     image:
-      "https://github.com/Vinay-the-dev-bot/byte-harmony-2098/assets/146977653/cdbef4b2-da3e-46d6-b714-d09ff5e86607",
+      "https://github.com/geeteshmehuria/c-sharp-samrat-2345/assets/70647591/467a6ac9-fcc2-4fa2-862a-7aca0671bdfc",
     tags: ["HTML", "CSS", "SASS", "JavaScript", "Node.js"],
     category: "web app",
     github: "https://github.com/geeteshmehuria/byte-harmony",
@@ -478,7 +478,7 @@ export const projects = [
     description:
       "An in-depth blog page with navigation bar, blog page, comments section, author setion, related fields, footer..",
     image:
-      "https://github.com/dev-chandan-pandey/Gusty-adjustment-6018/assets/57762023/22ecb06d-5deb-4b83-a458-a0ddcdf42e4b",
+      "https://github.com/geeteshmehuria/c-sharp-samrat-2345/assets/70647591/b21cff09-6186-44d5-a282-c7002c77680c",
     tags: ["HTML", "CSS", "SASS", "Github", "Git", "VSCode"],
     category: "web app",
     github: "https://github.com/geeteshmehuria/Gusty-adjustment",
