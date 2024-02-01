@@ -11,6 +11,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { ResumeButton } from "../HeroSection/HeroStyle";
+import resume from "../resume/Geetesh-Mehuria-Resume.pdf";
 
 const Container = styled.div`
   display: flex;
@@ -110,6 +111,52 @@ const ContactInputMessage = styled.textarea`
   }
 `;
 
+const ResumeDownloadButton = styled.a`
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  width: 95%;
+  max-width: 300px;
+  text-align: center;
+  padding: 16px 40px;
+  margin-top: 10px;
+  color: ${({ theme }) => theme.white};
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out !important;
+  background: hsla(271, 100%, 50%, 1);
+  background: linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.4s ease-in-out;
+    box-shadow: 20px 20px 60px #1f2634;
+    filter: brightness(1);
+  }
+
+  @media (max-width: 640px) {
+    padding: 12px 0;
+    font-size: 18px;
+  }
+`;
+
 const ContactButton = styled.input`
   width: 100%;
   text-decoration: none;
@@ -166,20 +213,18 @@ const Contact = () => {
         <ContactForm ref={form} onSubmit={handleSubmit}>
           <Desc id="user-detail-intro">Email:- {Bio.email}</Desc>
           <Desc id="user-detail-intro">Phone:- {Bio.contact}</Desc>
-          <Desc ></Desc>
-      n
+
           <Desc>
-          <ResumeButton   
-              href={Bio.resume}
+            <ResumeDownloadButton
+              href={resume}
               target="display"
-              download="/src/resume/Geetesh Mehuria-Resume.pdf"
               class="nav-link resume"
               id="resume-button-2"
+              download
             >
-              Check Resume
-            </ResumeButton>
+              Download Resume
+            </ResumeDownloadButton>
           </Desc>
-         
         </ContactForm>
         <Snackbar
           open={open}
