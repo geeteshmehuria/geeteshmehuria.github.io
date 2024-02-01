@@ -50,7 +50,7 @@ margin-top: 20px;
   }
 `;
 
-const Desc = styled.div`
+export const Desc = styled.div`
     font-size: 18px;
     text-align: center;
     max-width: 600px;

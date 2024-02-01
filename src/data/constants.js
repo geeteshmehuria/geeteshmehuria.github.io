@@ -9,6 +9,8 @@ export const Bio = {
   linkedin: "https://www.linkedin.com/in/geetesh-mehuria/",
   insta: "https://www.instagram.com/this_is_geetesh_/",
   facebook: "https://www.facebook.com/m.geetesh/",
+  email:"geeteshmaihuria@gmail.com",
+  contact:"8299004960"
 };
 
 export const skills = [

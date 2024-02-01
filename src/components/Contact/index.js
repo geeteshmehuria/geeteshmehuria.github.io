@@ -1,8 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { useRef } from "react";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 import { Snackbar } from "@mui/material";
+// import { SubTitle } from "../HeroSection/HeroStyle";
+import { Bio } from "../../data/constants";
+import { SocialMediaIcon, SocialMediaIcons } from "../About/AboutStyle";
+import FacebookIcon from "@mui/icons-material/Facebook";
+// import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import { ResumeButton } from "../HeroSection/HeroStyle";
 
 const Container = styled.div`
   display: flex;
@@ -154,13 +162,22 @@ const Contact = () => {
         <Desc>
           Feel free to reach out to me for any questions or opportunities!
         </Desc>
+
         <ContactForm ref={form} onSubmit={handleSubmit}>
-          <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
-          <ContactInput placeholder="Subject" name="subject" />
-          <ContactInputMessage placeholder="Message" rows="4" name="message" />
-          <ContactButton type="submit" value="Send" />
+          <Desc id="user-detail-intro">Email:- {Bio.email}</Desc>
+          <Desc id="user-detail-intro">Phone:- {Bio.contact}</Desc>
+          <Desc>
+          <ResumeButton   
+              href={Bio.resume}
+              target="display"
+              download="/src/resume/Geetesh Mehuria-Resume.pdf"
+              class="nav-link resume"
+              id="resume-button-2"
+            >
+              Check Resume
+            </ResumeButton>
+          </Desc>
+         
         </ContactForm>
         <Snackbar
           open={open}
