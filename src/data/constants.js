@@ -12,11 +12,11 @@ export const Bio = {
   email: "geeteshmaihuria@gmail.com",
   contact: "8299004960",
   githubStreak:
-    "https://github-readme-streak-stats.herokuapp.com/?user=geeteshmehuria&",
+    "https://github-readme-streak-stats.herokuapp.com/?user=geeteshmehuria&theme=radical",
   githubStats:
-    "https://github-readme-stats.vercel.app/api?username=geeteshmehuria&show_icons=true&locale=en",
+    "https://github-readme-stats.vercel.app/api?username=geeteshmehuria&show_icons=true&theme=radical",
   githubLanguge:
-    "https://github-readme-stats.vercel.app/api/top-langs?username=geeteshmehuria&show_icons=true&locale=en&layout=compact",
+    "https://github-readme-stats.vercel.app/api/top-langs?username=geeteshmehuria&show_icons=true&locale=en&layout=compact&theme=radical",
 
   githubCalendar: "https://ghchart.rshah.org/geeteshmehuria",
 };
