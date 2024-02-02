@@ -17,6 +17,8 @@ export const Bio = {
     "https://github-readme-stats.vercel.app/api?username=geeteshmehuria&show_icons=true&locale=en",
   githubLanguge:
     "https://github-readme-stats.vercel.app/api/top-langs?username=geeteshmehuria&show_icons=true&locale=en&layout=compact",
+
+  githubCalendar: "https://ghchart.rshah.org/geeteshmehuria",
 };
 
 export const skills = [

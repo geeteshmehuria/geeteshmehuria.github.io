@@ -54,7 +54,7 @@ const Title = styled.div`
 const Desc = styled.div`
   font-size: 18px;
   text-align: center;
-  max-width: 600px;
+  max-width: 700px;
   color: ${({ theme }) => theme.text_secondary};
   @media (max-width: 768px) {
     margin-top: 12px;
@@ -64,7 +64,7 @@ const Desc = styled.div`
 
 const StatisticsBox = styled.form`
   width: 95%;
-  max-width: 600px;
+  max-width: 650px;
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.card};
@@ -139,6 +139,7 @@ const ContactButton = styled.input`
   font-weight: 600;
 `;
 const StatisticsImage = styled.img`
+  text-align: center;
   width: 100%;
   object-fit: cover;
   border-radius: 12px;
@@ -168,6 +169,9 @@ const Statistics = () => {
 
           <Desc>
             <StatisticsImage src={Bio.githubStreak} alt="" />
+          </Desc>
+          <Desc>
+            <StatisticsImage src={Bio.githubCalendar} alt="" />
           </Desc>
           <Desc></Desc>
         </StatisticsBox>
