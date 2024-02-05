@@ -490,7 +490,7 @@ export const projects = [
       "An in-depth blog page with navigation bar, blog page, comments section, author setion, related fields, footer..",
     image:
       "https://github.com/geeteshmehuria/c-sharp-samrat-2345/assets/70647591/b21cff09-6186-44d5-a282-c7002c77680c",
-    tags: ["HTML", "CSS", "SASS", "Github", "Git", "VSCode"],
+    tags: ["HTML", "CSS", "SASS", "Github", "Git", "VSCode","figma"],
     category: "web app",
     github: "https://github.com/geeteshmehuria/Gusty-adjustment",
     webapp: "https://stirring-croquembouche-c5740d.netlify.app/",
