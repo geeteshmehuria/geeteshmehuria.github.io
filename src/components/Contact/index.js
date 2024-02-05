@@ -216,13 +216,13 @@ const Contact = () => {
 
           <Desc>
             <ResumeDownloadButton
-              href={resume}
-              target="display"
+              href={Bio.github}
+              target="_blank"
               class="nav-link resume"
               id="resume-button-2"
-              download
+            
             >
-              Download Resume
+              Github Profile
             </ResumeDownloadButton>
           </Desc>
         </ContactForm>

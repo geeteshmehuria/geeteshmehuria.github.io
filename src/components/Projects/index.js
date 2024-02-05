@@ -12,6 +12,8 @@ import {
 } from "./ProjectsStyle";
 import ProjectCard from "../Cards/ProjectCards";
 import { projects } from "../../data/constants";
+import { ButtonGroup } from "@mui/material";
+import { Button } from "react-scroll";
 
 const Projects = ({ openModal, setOpenModal }) => {
   const [toggle, setToggle] = useState("all");

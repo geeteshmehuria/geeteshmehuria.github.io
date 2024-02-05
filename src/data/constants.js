@@ -1,6 +1,6 @@
 export const Bio = {
   name: "Geetesh Mehuria",
-  roles: ["Full Stack Developer", "Programmer"],
+  roles: ["Aspiring MERN Developer", "Programmer"], //"Full Stack Developer",
   description:
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/geeteshmehuria",
@@ -425,7 +425,7 @@ export const education = [
 export const projects = [
   {
     id: 0,
-    title: "Samrat Hospital",
+    title: "Samrat-Hospital-clone",
     // date: "Apr 2023 - May 2023",
     description:
       "Developed a full-stack web application inspired by Samrat Hospital's commitment to unparalleled healthcare with a compassionate touch. Mirroring their state-of-the-art facility, our application combines cutting-edge technology to deliver a seamless user experience, embracing the belief that healing extends beyond the body to nurture the spirit. Welcome to a digital space dedicated to holistic well-being.",
@@ -462,13 +462,22 @@ export const projects = [
 
   {
     id: 9,
-    title: "Travelo",
+    title: "Travelo-clone",
     // date: "Jun 2023 - Jul 2023",
     description:
       "Travelo Discover the Ultimate Sporting Experience with Travelo – Your One-Stop Destination for Booking Unforgettable Sporting Events.. Elevate your day excitement by securing your tickets effortlessly with us. Your journey to the heart of the action begins here.",
     image:
       "https://github.com/geeteshmehuria/c-sharp-samrat-2345/assets/70647591/467a6ac9-fcc2-4fa2-862a-7aca0671bdfc",
-    tags: ["HTML", "CSS", "SASS", "JavaScript", "Node.js"],
+    tags: [
+      "HTML",
+      "CSS",
+      "SASS",
+      "JavaScript",
+      "Node.js",
+      "Github",
+      "Git",
+      "VSCode",
+    ],
     category: "web app",
     github: "https://github.com/geeteshmehuria/byte-harmony",
     webapp: "https://byte-harmony-2098-sandy.vercel.app/",

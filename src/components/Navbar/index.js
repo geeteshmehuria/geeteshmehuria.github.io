@@ -12,7 +12,9 @@ import {
   MobileMenu,
   MobileNavLogo,
   MobileLink,
+  CheckResumeNav,
 } from "./NavbarStyledComponent";
+import resume from "../resume/Geetesh-Mehuria-Resume.pdf";
 import { DiCssdeck } from "react-icons/di";
 import { FaBars } from "react-icons/fa";
 import { Bio } from "../../data/constants";
@@ -65,9 +67,20 @@ const Navbar = () => {
           </NavLink>
         </NavItems>
         <ButtonContainer>
-          <GitHubButton href={Bio.github} target="_blank" id="contact-github">
-            Github Profile
-          </GitHubButton>
+          <CheckResumeNav
+            href={resume}
+            target="_blank"
+            id="contact-github"
+            download
+            onClick={() => {
+              window.open(
+                "https://drive.google.com/file/d/1cJ1oDRViH-4ryML9NLrl4es2CI3lhQhc/view?usp=sharing",
+                "_blank"
+              );
+            }}
+          >
+            Download Resume
+          </CheckResumeNav>
         </ButtonContainer>
         {isOpen && (
           <MobileMenu isOpen={isOpen}>
@@ -111,18 +124,20 @@ const Navbar = () => {
             >
               Contact
             </MobileLink>
-            <GitHubButton
-              style={{
-                padding: "10px 16px",
-                background: `${theme.primary}`,
-                color: "white",
-                width: "max-content",
-              }}
-              href={Bio.github}
+            <CheckResumeNav
+              href={resume}
               target="_blank"
+              id="contact-github"
+              download
+              onClick={() => {
+                window.open(
+                  "https://drive.google.com/file/d/1cJ1oDRViH-4ryML9NLrl4es2CI3lhQhc/view?usp=sharing",
+                  "_blank"
+                );
+              }}
             >
-              Github Profile
-            </GitHubButton>
+              Download Resume
+            </CheckResumeNav>
           </MobileMenu>
         )}
       </NavbarContainer>
