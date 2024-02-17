@@ -424,6 +424,28 @@ export const education = [
 
 export const projects = [
   {
+    id: 9,
+    title: "Simple notes",
+    // date: "Jun 2023 - Jul 2023",
+    description:
+      "Developed a dynamic full-stack application exemplifying efficient note-taking capabilities. Utilizing MongoDB for robust data storage, Node.js and Express.js power the backend, ensuring seamless login, logout, and personalized dashboard functionalities. On the frontend, React.js, Chakra UI, and Tailwind CSS collaborate harmoniously to deliver a captivating user experience. Witness the fusion of cutting-edge technologies, culminating in a sleek and intuitive platform that elevates productivity and organization. Explore this showcase of technical proficiency and innovation, where every detail is meticulously crafted to redefine the art of note-taking.",
+    image:
+      "https://github.com/geeteshmehuria/simple-notes-backend/assets/70647591/65997d45-a196-4a6d-ac19-d99df1f2d56b",
+    tags: [
+      "React.js",
+      "Redux",
+      "Chakra UI",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+    ],
+    category: "web app",
+    github: "https://github.com/geeteshmehuria/simple-notes",
+    webapp: "https://simple-notes-theta.vercel.app/",
+  },
+  {
     id: 0,
     title: "Samrat-Hospital-clone",
     // date: "Apr 2023 - May 2023",
@@ -490,11 +512,12 @@ export const projects = [
       "An in-depth blog page with navigation bar, blog page, comments section, author setion, related fields, footer..",
     image:
       "https://github.com/geeteshmehuria/c-sharp-samrat-2345/assets/70647591/b21cff09-6186-44d5-a282-c7002c77680c",
-    tags: ["HTML", "CSS", "SASS", "Github", "Git", "VSCode","figma"],
+    tags: ["HTML", "CSS", "SASS", "Github", "Git", "VSCode", "figma"],
     category: "web app",
     github: "https://github.com/geeteshmehuria/Gusty-adjustment",
     webapp: "https://stirring-croquembouche-c5740d.netlify.app/",
   },
+
   // {
   //   id: 1,
   //   title: "Vexa",
