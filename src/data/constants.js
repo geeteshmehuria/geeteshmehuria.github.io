@@ -443,7 +443,7 @@ export const projects = [
     ],
     category: "web app",
     github: "https://github.com/geeteshmehuria/simple-notes",
-    webapp: "https://simple-notes-theta.vercel.app/",
+    webapp: "https://simple-notes-green.vercel.app/",
   },
   {
     id: 0,
