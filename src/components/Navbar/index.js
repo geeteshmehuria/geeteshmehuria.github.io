@@ -23,7 +23,7 @@ import { useTheme } from "styled-components";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const theme = useTheme();
+  // const theme = useTheme();
   return (
     <Nav id="nav-menu">
       <NavbarContainer>
@@ -71,13 +71,13 @@ const Navbar = () => {
             href={resume}
             target="_blank"
             id="contact-github"
-            download
             onClick={() => {
               window.open(
-                "https://drive.google.com/file/d/1cJ1oDRViH-4ryML9NLrl4es2CI3lhQhc/view?usp=sharing",
+                "https://drive.google.com/file/d/1c6n_AwdFxbPAmHn5Er7F27pLISPdTN6H/view?usp=sharing",
                 "_blank"
               );
             }}
+            download={true}
           >
             Download Resume
           </CheckResumeNav>
@@ -131,7 +131,7 @@ const Navbar = () => {
               download
               onClick={() => {
                 window.open(
-                  "https://drive.google.com/file/d/1cJ1oDRViH-4ryML9NLrl4es2CI3lhQhc/view?usp=sharing",
+                  "https://drive.google.com/file/d/1c6n_AwdFxbPAmHn5Er7F27pLISPdTN6H/view?usp=sharing",
                   "_blank"
                 );
               }}

@@ -5,7 +5,7 @@ export const Bio = {
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/geeteshmehuria",
   resume:
-    "https://drive.google.com/file/d/1cJ1oDRViH-4ryML9NLrl4es2CI3lhQhc/view?usp=sharing",
+    "https://drive.google.com/file/d/1c6n_AwdFxbPAmHn5Er7F27pLISPdTN6H/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/geetesh-mehuria/",
   insta: "https://www.instagram.com/this_is_geetesh_/",
   facebook: "https://www.facebook.com/m.geetesh/",
@@ -423,6 +423,28 @@ export const education = [
 ];
 
 export const projects = [
+  {
+    id: 9,
+    title: "CodeFlow",
+    // date: "Jun 2023 - Jul 2023",
+    description:
+      "Developed a dynamic full-stack application, CodeFlow immerses you in real-time coding with its dynamic editor offering live previews and multi-language support. Engage in challenges, submit solutions, and climb the ranks, all within a vibrant community of developers. Powered by Node.js, Express.js, React.js, Chakra UI, and Tailwind CSS, it's a fusion of innovation and user experience, ensuring seamless functionality and captivating design. Whether you're a novice or a seasoned coder, CodeFlow is your gateway to limitless creativity and collaboration.",
+    image:
+      "https://github.com/Vinay-the-dev-bot/CodeFlow/assets/70647591/85dd0521-eba8-4c84-9cc1-0f70dd0fa931",
+    tags: [
+      "React.js",
+      "Redux",
+      "Chakra UI",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+    ],
+    category: "web app",
+    github: "https://github.com/geeteshmehuria/CodeFlow",
+    webapp: "https://codeflow-cdf.netlify.app/",
+  },
   {
     id: 9,
     title: "Simple notes",
