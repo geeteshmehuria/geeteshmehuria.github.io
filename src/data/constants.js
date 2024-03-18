@@ -424,7 +424,28 @@ export const education = [
 
 export const projects = [
   {
-    id: 9,
+    id: 1,
+    title: "Chefbot",
+    // date: "Jun 2023 - Jul 2023",
+    description:
+      "Developed a dynamic recipe generator a single-page web application built with cutting-edge technologies to provide users with a seamless and engaging culinary experience. Leveraging ReactJS, TypeScript, and Tailwind CSS for the frontend, and NodeJS, ExpressJS, MongoDB for the backend. OpenAI API, and DeepAI API as external api. Our application aims to revolutionize the way users discover and create recipes.",
+    image:
+      "https://github.com/SreeHarsha-Kamisetty/Prodigies/assets/146928943/43871c40-ea78-42a7-9035-105e54518a86",
+    tags: [
+      "React+TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "OpenAI",
+      "DeepAI",
+    ],
+    category: "web app",
+    github: "https://github.com/geeteshmehuria/Prodigies",
+    webapp: "https://chef-bot-six.vercel.app/",
+  },
+  {
+    id: 1,
     title: "CodeFlow",
     // date: "Jun 2023 - Jul 2023",
     description:
@@ -446,7 +467,7 @@ export const projects = [
     webapp: "https://codeflow-cdf.netlify.app/",
   },
   {
-    id: 9,
+    id: 2,
     title: "Simple notes",
     // date: "Jun 2023 - Jul 2023",
     description:
@@ -468,7 +489,7 @@ export const projects = [
     webapp: "https://simple-notes-alpha.vercel.app/",
   },
   {
-    id: 0,
+    id: 3,
     title: "Samrat-Hospital-clone",
     // date: "Apr 2023 - May 2023",
     description:
@@ -505,7 +526,7 @@ export const projects = [
   },
 
   {
-    id: 9,
+    id: 4,
     title: "Travelo-clone",
     // date: "Jun 2023 - Jul 2023",
     description:
@@ -527,7 +548,7 @@ export const projects = [
     webapp: "https://byte-harmony-2098-sandy.vercel.app/",
   },
   {
-    id: 11,
+    id: 5,
     title: "Blog Page",
     // date: "Jan 2024 - Dec 2023",
     description:
