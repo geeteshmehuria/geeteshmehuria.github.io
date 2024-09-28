@@ -124,7 +124,7 @@ const Skills = () => {
     <Container id="skills" class="skills-card">
       <Wrapper>
         <Title>Skills</Title>
-        <Desc>Here are some of my skills on which I have been working on for the past 6 Months.
+        <Desc>Here are some of my skills on which I have been working on for the past 12 Months.
         </Desc>
         <SkillsContainer>
           {skills.map((skill) => (
@@ -133,7 +133,7 @@ const Skills = () => {
               <SkillList>
                 {skill.skills.map((item) => (
                   <SkillItem>
-                    <SkillImage src={item.image} class="skills-card-img skills-card-name"/>
+                    <SkillImage src={item.image} class="skills-card-img skills-card-name" />
                     {item.name}
                   </SkillItem>
                 ))}
