@@ -1,6 +1,6 @@
 export const Bio = {
   name: "Geetesh Mehuria",
-  roles: ["Aspiring MERN Developer", "Programmer"], //"Full Stack Developer",
+  roles: ["Full Stack Developer", "Programmer"], //"Full Stack Developer",
   description:
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/geeteshmehuria",
@@ -46,7 +46,7 @@ export const skills = [
       {
         name: "Tailwind CSS",
         image:
-          "https://camo.githubusercontent.com/0568e2de313626b2bd9b96f326941b012d45e9a4db1a23aa78bd8036207e57f8/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f7461696c77696e646373732f7461696c77696e646373732d69636f6e2e737667",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuF7o_QNyY4w0wWYb0R3bYbqjE-x3npu5ZQA&s",
       },
 
       {
@@ -128,10 +128,10 @@ export const skills = [
         image:
           "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
       },
-      // {
-      //   name: "Firebase",
-      //   image: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
-      // },
+      {
+        name: "Postgresql",
+        image: "https://github.com/user-attachments/assets/7f71ee52-5aef-456c-b495-574b91da1ec6",
+      },
     ],
   },
   // {
@@ -282,29 +282,38 @@ export const skills = [
         image:
           "https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png",
       },
+      {
+        name: "Wappler",
+        image:
+          "https://blog.wappler.io/wp-content/uploads/2022/07/cropped-wappler-logo-logo-mark-full-color-rgb-1000px@300ppi-300x300.jpg",
+      },
+      {
+        name: "Chart JS",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Chart.js_logo.svg/1024px-Chart.js_logo.svg.png",
+      },
     ],
   },
 ];
 
 export const experiences = [
-  // {
-  //   id: 0,
-  //   img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/neurobit.jpeg?alt=media&token=1cacbb7b-e5ea-4efb-9b3d-f5a31b9564ad",
-  //   role: "Frontend Engineer Intern",
-  //   company: "Neurobit",
-  //   date: "June 2023 - Nov 2023",
-  //   desc: "Enhanced user experiences on Neurobit PSG & Hybrid, Portals by resolving bugs & reduced load time by 40%. Built Neurobit Analytics portal using React Js with seamless interaction of REST APIs using AXIOS optimized with React Query. Refactored previous code to TypeScript, updated with new dependency and integrated Vite with Jest for Unit Testing.",
-  //   skills: [
-  //     "ReactJS",
-  //     "Redux",
-  //     "NodeJs",
-  //     "Material UI",
-  //     "HTML",
-  //     "CSS",
-  //     "JavaScript",
-  //   ],
-  //   doc: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/Screenshot%20from%202024-01-25%2022-38-31.png?alt=media&token=2785903f-1a4e-41f5-afd2-6adcfe56d058",
-  // },
+  {
+    id: 0,
+    img: "https://github.com/user-attachments/assets/4c9b7aac-ce5e-412b-80fd-8cf5c9f0669c",
+    role: "Full stack Developer",
+    company: "Slashash",
+    date: "March 2024 - Present",
+    desc: "At Slashash, we specialize in creating software that streamlines niche and complex processes for small and medium-sized businesses as well as enterprises. Whether building applications from the ground up or enhancing existing systems through seamless integration, we adapt to meet our clients' needs.",
+    skills: [
+      "Wappler",
+      "NodeJs",
+      "Bootstrap 5",
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
+    // doc: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/Screenshot%20from%202024-01-25%2022-38-31.png?alt=media&token=2785903f-1a4e-41f5-afd2-6adcfe56d058",
+  },
   // {
   //   id: 1,
   //   img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/flipr.jpeg?alt=media&token=1d72532a-45eb-4c1a-a81a-c9bed9fec543",
