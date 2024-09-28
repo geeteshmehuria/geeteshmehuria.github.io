@@ -90,7 +90,7 @@ const index = () => {
                     <TimelineConnector style={{ background: "#854CE6" }} />
                   )}
                 </TimelineSeparator>
-                <TimelineContent sx={{ py: "12px", px: 2 }}>
+                <TimelineContent sx={{ py: "12px", px: 2, pb: "40px" }}>
                   <ExperienceCard experience={experience} />
                 </TimelineContent>
               </TimelineItem>
