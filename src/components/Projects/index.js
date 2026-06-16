@@ -1,110 +1,37 @@
 import React from "react";
-import { useState } from "react";
-import {
-  Container,
-  Wrapper,
-  Title,
-  Desc,
-  CardContainer,
-  ToggleButtonGroup,
-  ToggleButton,
-  Divider,
-} from "./ProjectsStyle";
+import styled from "styled-components";
 import ProjectCard from "../Cards/ProjectCards";
 import { projects } from "../../data/constants";
-import { ButtonGroup } from "@mui/material";
-import { Button } from "react-scroll";
+import { SectionWrap, SectionInner, Kicker, Heading, Lead } from "../ui/Section";
+import Reveal from "../Reveal";
 
-const Projects = ({ openModal, setOpenModal }) => {
-  const [toggle, setToggle] = useState("all");
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+`;
+
+const Projects = ({ setOpenModal }) => {
   return (
-    <Container id="projects">
-      <Wrapper>
-        <Title>Projects</Title>
-        <Desc>
-          I have worked on a wide range of projects. Here are some of my
-          projects.
-        </Desc>
-        {/* <ToggleButtonGroup>
-          {toggle === "all" ? (
-            <ToggleButton active value="all" onClick={() => setToggle("all")}>
-              All
-            </ToggleButton>
-          ) : (
-            <ToggleButton value="all" onClick={() => setToggle("all")}>
-              All
-            </ToggleButton>
-          )}
-          <Divider />
-          {toggle === "web app" ? (
-            <ToggleButton
-              active
-              value="web app"
-              onClick={() => setToggle("web app")}
-            >
-              WEB APP'S
-            </ToggleButton>
-          ) : (
-            <ToggleButton value="web app" onClick={() => setToggle("web app")}>
-              WEB APP'S
-            </ToggleButton>
-          )}
-          <Divider />
-          {toggle === "android app" ? (
-            <ToggleButton
-              active
-              value="android app"
-              onClick={() => setToggle("android app")}
-            >
-              ANDROID APP'S
-            </ToggleButton>
-          ) : (
-            <ToggleButton
-              value="android app"
-              onClick={() => setToggle("android app")}
-            >
-              ANDROID APP'S
-            </ToggleButton>
-          )}
-          <Divider />
-          {toggle === "machine learning" ? (
-            <ToggleButton
-              active
-              value="machine learning"
-              onClick={() => setToggle("machine learning")}
-            >
-              MACHINE LEARNING
-            </ToggleButton>
-          ) : (
-            <ToggleButton
-              value="machine learning"
-              onClick={() => setToggle("machine learning")}
-            >
-              MACHINE LEARNING
-            </ToggleButton>
-          )}
-        </ToggleButtonGroup> */}
-        <CardContainer>
-          {toggle === "all" &&
-            projects.map((project) => (
-              <ProjectCard
-                project={project}
-                openModal={openModal}
-                setOpenModal={setOpenModal}
-              />
-            ))}
-          {projects
-            .filter((item) => item.category == toggle)
-            .map((project) => (
-              <ProjectCard
-                project={project}
-                openModal={openModal}
-                setOpenModal={setOpenModal}
-              />
-            ))}
-        </CardContainer>
-      </Wrapper>
-    </Container>
+    <SectionWrap id="projects">
+      <SectionInner>
+        <Reveal>
+          <Kicker>Projects</Kicker>
+          <Heading>Selected work</Heading>
+          <Lead>
+            A few projects I've built — focused on full-stack development and
+            AI-powered features. Click a card for details.
+          </Lead>
+        </Reveal>
+        <Grid>
+          {projects.map((project, i) => (
+            <Reveal key={project.id} delay={(i % 3) * 110}>
+              <ProjectCard project={project} setOpenModal={setOpenModal} />
+            </Reveal>
+          ))}
+        </Grid>
+      </SectionInner>
+    </SectionWrap>
   );
 };
 

@@ -1,121 +1,113 @@
+import React from "react";
 import styled from "styled-components";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { Bio } from "../../data/constants";
 
-const FooterContainer = styled.div`
-  width: 100%;
-  padding: 2rem 0;
-  display: flex;
-  justify-content: center;
-  //background: linear-gradient(100.26deg, rgba(0, 102, 255, 0.05) 42.33%, rgba(150, 0, 225, 0.05) 127.07%);
+const Wrap = styled.footer`
+  position: relative;
+  border-top: 1px solid ${({ theme }) => theme.border};
+  padding: 44px 24px 36px;
 `;
 
-const FooterWrapper = styled.footer`
-  width: 100%;
-  max-width: 1200px;
+const Inner = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
   align-items: center;
-  padding: 1rem;
-  color: ${({ theme }) => theme.text_primary};
-`;
-
-const Logo = styled.h1`
-  font-weight: 600;
-  font-size: 20px;
-  color: ${({ theme }) => theme.primary};
-`;
-
-const Nav = styled.nav`
-  width: 100%;
-  max-width: 800px;
-  margin-top: 0.5rem;
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  justify-content: center;
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    text-align: center;
-    font-size: 12px;
-  }
-`;
-
-const NavLink = styled.a`
-  color: ${({ theme }) => theme.text_primary};
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: color 0.2s ease-in-out;
-  &:hover {
-    color: ${({ theme }) => theme.primary};
-  }
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-const SocialMediaIcons = styled.div`
-  display: flex;
-  margin-top: 1rem;
-`;
-
-const SocialMediaIcon = styled.a`
-  display: inline-block;
-  margin: 0 1rem;
-  font-size: 1.5rem;
-  color: ${({ theme }) => theme.text_primary};
-  transition: color 0.2s ease-in-out;
-  &:hover {
-    color: ${({ theme }) => theme.primary};
-  }
-`;
-
-const Copyright = styled.p`
-  margin-top: 1.5rem;
-  font-size: 0.9rem;
-  color: ${({ theme }) => theme.soft2};
+  gap: 22px;
   text-align: center;
 `;
 
-function Footer() {
+const Name = styled.a`
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  text-decoration: none;
+  background: ${({ theme }) => theme.gradient};
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+
+const Links = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+`;
+
+const Link = styled.a`
+  font-size: 14.5px;
+  text-decoration: none;
+  color: ${({ theme }) => theme.text_secondary};
+  transition: color 0.2s ease;
+  &:hover { color: ${({ theme }) => theme.text_primary}; }
+`;
+
+const Socials = styled.div`
+  display: flex;
+  gap: 12px;
+`;
+
+const Social = styled.a`
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  font-size: 18px;
+  color: ${({ theme }) => theme.text_secondary};
+  border: 1px solid ${({ theme }) => theme.border};
+  transition: all 0.2s ease;
+  &:hover {
+    color: #fff;
+    border-color: ${({ theme }) => theme.primary};
+    transform: translateY(-3px);
+  }
+`;
+
+const Copy = styled.p`
+  font-size: 13px;
+  color: ${({ theme }) => theme.text_secondary};
+`;
+
+const links = [
+  ["About", "#about"],
+  ["Skills", "#skills"],
+  ["Experience", "#experience"],
+  ["Projects", "#projects"],
+  ["Education", "#education"],
+  ["Contact", "#contact"],
+];
+
+const Footer = () => {
   return (
-    <FooterContainer>
-      <FooterWrapper>
-        <Logo>Geetesh Mehuria</Logo>
-        <Nav>
-          <NavLink href="#about">About</NavLink>
-          <NavLink href="#skills">Skills</NavLink>
-          <NavLink href="#projects">Projects</NavLink>
-          <NavLink href="#statistics">Statistics</NavLink>
-          <NavLink href="#education">Education</NavLink>
-          <NavLink href="#contact">Contact</NavLink>
-        </Nav>
-        <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display">
-            <FacebookIcon />
-          </SocialMediaIcon>
-          {/* <SocialMediaIcon href={Bio.twitter} target="display"><TwitterIcon /></SocialMediaIcon> */}
-          <SocialMediaIcon
-            href={Bio.linkedin}
-            target="display"
-            id="contact-linkedin"
-          >
-            <LinkedInIcon />
-          </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="display">
-            <InstagramIcon />
-          </SocialMediaIcon>
-        </SocialMediaIcons>
-        <Copyright>&copy; 2024 Geetesh Mehuria. All rights reserved.</Copyright>
-      </FooterWrapper>
-    </FooterContainer>
+    <Wrap>
+      <Inner>
+        <Name href="#home">{Bio.name}</Name>
+        <Links>
+          {links.map(([label, href]) => (
+            <Link key={href} href={href}>
+              {label}
+            </Link>
+          ))}
+        </Links>
+        <Socials>
+          <Social href={Bio.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+            <FaGithub />
+          </Social>
+          <Social href={Bio.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <FaLinkedin />
+          </Social>
+          <Social href={`mailto:${Bio.email}`} aria-label="Email">
+            <FaEnvelope />
+          </Social>
+        </Socials>
+        <Copy>© {new Date().getFullYear()} {Bio.name}. Built with React.</Copy>
+      </Inner>
+    </Wrap>
   );
-}
+};
 
 export default Footer;

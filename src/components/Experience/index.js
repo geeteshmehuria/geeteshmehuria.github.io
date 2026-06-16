@@ -1,105 +1,169 @@
 import React from "react";
 import styled from "styled-components";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineDot from "@mui/lab/TimelineDot";
-import ExperienceCard from "../Cards/ExperienceCard";
 import { experiences } from "../../data/constants";
+import { SectionWrap, SectionInner, Kicker, Heading, Lead } from "../ui/Section";
+import Reveal from "../Reveal";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+const Timeline = styled.div`
   position: relative;
-  z-index: 1;
-  align-items: center;
-  padding: 40px 0px 80px 0px;
-  @media (max-width: 960px) {
-    padding: 0px;
+  max-width: 820px;
+  margin: 0 auto;
+  padding-left: 34px;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(
+      ${({ theme }) => theme.primary},
+      ${({ theme }) => theme.accent},
+      transparent
+    );
   }
 `;
 
-const Wrapper = styled.div`
+const Item = styled.div`
   position: relative;
+  margin-bottom: 28px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.bg};
+    border: 3px solid ${({ theme }) => theme.primary};
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+  }
+`;
+
+const Card = styled.div`
+  background: ${({ theme }) => theme.card};
+  border: 1px solid ${({ theme }) => theme.border};
+  border-radius: 16px;
+  padding: 24px 26px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  &:hover {
+    transform: translateX(4px);
+    border-color: ${({ theme }) => theme.primary};
+  }
+`;
+
+const Head = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
   justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1350px;
-  padding: 10px 0;
-  gap: 12px;
-  @media (max-width: 960px) {
-    flex-direction: column;
-  }
+  gap: 6px;
+  margin-bottom: 4px;
 `;
 
-const Title = styled.div`
-  font-size: 42px;
-  text-align: center;
-  font-weight: 600;
-  margin-top: 10px;
+const Role = styled.h3`
+  font-size: 19px;
+  font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
-  @media (max-width: 768px) {
-    margin-top: 12px;
-    font-size: 32px;
-  }
 `;
 
-const Desc = styled.div`
-  font-size: 18px;
-  text-align: center;
-  max-width: 600px;
+const Company = styled.span`
+  color: ${({ theme }) => theme.primary};
+  font-weight: 600;
+`;
+
+const DateText = styled.span`
+  font-size: 13.5px;
+  font-weight: 500;
   color: ${({ theme }) => theme.text_secondary};
-  @media (max-width: 768px) {
-    margin-top: 12px;
-    font-size: 16px;
+`;
+
+const Desc = styled.p`
+  font-size: 15px;
+  line-height: 1.65;
+  color: ${({ theme }) => theme.text_secondary};
+  margin: 8px 0 14px;
+`;
+
+const Bullets = styled.ul`
+  margin: 0 0 16px;
+  padding-left: 18px;
+  & li {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: ${({ theme }) => theme.text_secondary};
+    margin-bottom: 7px;
+  }
+  & li::marker {
+    color: ${({ theme }) => theme.accent};
   }
 `;
 
-const TimelineSection = styled.div`
-  width: 100%;
-  max-width: 1000px;
-  margin-top: 10px;
+const Tags = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
 `;
 
-const index = () => {
+const Tag = styled.span`
+  font-size: 12.5px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.accent};
+  background: ${({ theme }) => theme.gradientSoft};
+  border: 1px solid ${({ theme }) => theme.border};
+  border-radius: 8px;
+  padding: 4px 10px;
+`;
+
+const Experience = () => {
   return (
-    <Container id="experience">
-      <Wrapper>
-        <Title>Experience</Title>
-        {/* <Desc>
-          My work experience as a software engineer and working on different
-          companies and projects.
-        </Desc> */}
-        <TimelineSection>
-          <Timeline>
-            {experiences.map((experience, index) => (
-              <TimelineItem>
-                <TimelineSeparator>
-                  <TimelineDot variant="outlined" color="secondary" />
-                  {index !== experiences.length - 1 && (
-                    <TimelineConnector style={{ background: "#854CE6" }} />
+    <SectionWrap id="experience">
+      <SectionInner>
+        <Reveal>
+          <Kicker>Experience</Kicker>
+          <Heading>Work highlights</Heading>
+          <Lead>
+            Where I've been building, migrating, and shipping production work.
+          </Lead>
+        </Reveal>
+        <Timeline>
+          {experiences.map((exp, i) => (
+            <Reveal key={exp.id} delay={i * 100}>
+              <Item>
+                <Card>
+                  <Head>
+                    <Role>
+                      {exp.role} · <Company>{exp.company}</Company>
+                    </Role>
+                    <DateText>{exp.date}</DateText>
+                  </Head>
+                  <Desc>{exp.desc}</Desc>
+                  {exp.bullets?.length > 0 && (
+                    <Bullets>
+                      {exp.bullets.map((b, bi) => (
+                        <li key={bi}>{b}</li>
+                      ))}
+                    </Bullets>
                   )}
-                </TimelineSeparator>
-                <TimelineContent sx={{ py: "12px", px: 2, pb: "40px" }}>
-                  <ExperienceCard experience={experience} />
-                </TimelineContent>
-              </TimelineItem>
-            ))}
-          </Timeline>
-        </TimelineSection>
-      </Wrapper>
-    </Container>
+                  {exp.skills?.length > 0 && (
+                    <Tags>
+                      {exp.skills.map((s) => (
+                        <Tag key={s}>{s}</Tag>
+                      ))}
+                    </Tags>
+                  )}
+                </Card>
+              </Item>
+            </Reveal>
+          ))}
+        </Timeline>
+      </SectionInner>
+    </SectionWrap>
   );
 };
 
-export default index;
+export default Experience;

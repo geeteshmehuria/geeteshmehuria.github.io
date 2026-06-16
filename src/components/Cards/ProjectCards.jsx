@@ -1,204 +1,173 @@
-import { ButtonGroup } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { HiOutlinePhotograph } from "react-icons/hi";
 
-const ButtonGroupP = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin: 12px 0px;
-  gap: 2px;
-`;
-
-const ButtonP = styled.a`
-  width: 100%;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
-  padding: 12px 16px;
-  border-radius: 8px;
-  background-color: ${({ theme }) => theme.primary};
-  ${({ dull, theme }) =>
-    dull &&
-    `
-        background-color: ${theme.bgLight};
-        color: ${theme.text_secondary};
-        &:hover {
-            background-color: ${({ theme }) => theme.bg + 99};
-        }
-    `}
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.5s ease;
-  &:hover {
-    background-color: ${({ theme }) => theme.primary + 99};
-  }
-  @media only screen and (max-width: 600px) {
-    font-size: 12px;
-  }
-`;
-
-const Button = styled.button`
-  display: none;
-  width: 100%;
-  padding: 10px;
-  background-color: ${({ theme }) => theme.white};
-  color: ${({ theme }) => theme.text_black};
-  font-size: 14px;
-  font-weight: 700;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.8s ease-in-out;
-`;
 const Card = styled.div`
-  width: 370px;
-  height: 490px;
-  background-color: ${({ theme }) => theme.card};
-  cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-  padding: 26px 20px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  transition: all 0.5s ease-in-out;
+  height: 100%;
+  background: ${({ theme }) => theme.card};
+  border: 1px solid ${({ theme }) => theme.border};
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
-    filter: brightness(1.1);
-  }
-  &:hover ${Button} {
-    display: block;
+    transform: translateY(-8px);
+    border-color: ${({ theme }) => theme.primary};
+    box-shadow: 0 24px 50px -24px rgba(139, 92, 246, 0.55);
   }
 `;
 
-const Image = styled.img`
+const Thumb = styled.div`
+  position: relative;
   width: 100%;
-  height: 180px;
-  background-color: ${({ theme }) => theme.white};
-  border-radius: 10px;
-  box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
+  height: 188px;
+  overflow: hidden;
+  background: ${({ theme }) => theme.gradientSoft};
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  ${Card}:hover & img {
+    transform: scale(1.06);
+  }
+`;
+
+const Placeholder = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: ${({ theme }) => theme.text_secondary};
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.16), rgba(34, 211, 238, 0.1));
+  & svg {
+    font-size: 30px;
+    opacity: 0.7;
+  }
+  & span {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+`;
+
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 22px 22px;
+  gap: 12px;
+`;
+
+const Title = styled.h3`
+  font-size: 19px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.text_primary};
+`;
+
+const Problem = styled.p`
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: ${({ theme }) => theme.text_secondary};
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 
 const Tags = styled.div`
-  width: 100%;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 7px;
 `;
 
 const Tag = styled.span`
   font-size: 12px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.primary};
-  background-color: ${({ theme }) => theme.primary + 15};
-  padding: 2px 8px;
-  border-radius: 10px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.accent};
+  background: ${({ theme }) => theme.card_light};
+  border: 1px solid ${({ theme }) => theme.border};
+  border-radius: 8px;
+  padding: 3px 9px;
 `;
 
-const Details = styled.div`
-  width: 100%;
+const Actions = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 0px;
-  padding: 0px 2px;
-`;
-const Title = styled.div`
-  font-size: 20px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
-  overflow: hidden;
-  display: -webkit-box;
-  max-width: 100%;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 6px;
 `;
 
-const Date = styled.div`
-  font-size: 12px;
-  margin-left: 2px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 80};
-  @media only screen and (max-width: 768px) {
-    font-size: 10px;
-  }
-`;
-
-const Description = styled.div`
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 99};
-  overflow: hidden;
-  margin-top: 8px;
-  display: -webkit-box;
-  max-width: 100%;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-`;
-
-const Members = styled.div`
-  display: flex;
+const Btn = styled.a`
+  display: inline-flex;
   align-items: center;
-  padding-left: 10px;
+  gap: 7px;
+  flex: 1;
+  justify-content: center;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  ${({ $primary, theme }) =>
+    $primary
+      ? `color:#fff; background:${theme.gradient}; &:hover{ filter:brightness(1.08); }`
+      : `color:${theme.text_primary}; background:${theme.card_light}; border:1px solid ${theme.border}; &:hover{ border-color:${theme.primary}; }`}
+  ${({ $disabled }) => $disabled && `opacity:0.45; pointer-events:none;`}
 `;
-const Avatar = styled.img`
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  margin-left: -10px;
-  background-color: ${({ theme }) => theme.white};
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border: 3px solid ${({ theme }) => theme.card};
-`;
+
+const stop = (e) => e.stopPropagation();
 
 const ProjectCards = ({ project, setOpenModal }) => {
   return (
-    <Card
-      onClick={() => setOpenModal({ state: true, project: project })}
-      class="project-card"
-    >
-      <Image src={project.image} />
-      <Tags>
-        {project.tags?.map((tag, index) => (
-          <Tag>{tag}</Tag>
-        ))}
-      </Tags>
-      <Details>
-        <Title class="project-title">{project.title}</Title>
-        <Date class="project-tech-stack">{project.date}</Date>
-        <Description class="project-description">
-          {project.description}
-        </Description>
-      </Details>
-      <ButtonGroupP>
-        <ButtonP
-          dull
-          href={project?.github}
-          target="new"
-          class="project-github-link"
-        >
-          View Code
-        </ButtonP>
-        <ButtonP
-          href={project?.webapp}
-          target="new"
-          class="project-deployed-link"
-        >
-          View Live App
-        </ButtonP>
-      </ButtonGroupP>
-      <Members>
-        {project.member?.map((member) => (
-          <Avatar src={member.img} />
-        ))}
-      </Members>
-      {/* <Button>View Project</Button> */}
+    <Card onClick={() => setOpenModal({ state: true, project })}>
+      <Thumb>
+        {project.image ? (
+          <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
+        ) : (
+          <Placeholder>
+            <HiOutlinePhotograph />
+            <span>Screenshot coming soon</span>
+          </Placeholder>
+        )}
+      </Thumb>
+      <Body>
+        <Title>{project.title}</Title>
+        <Problem>{project.problem || project.description}</Problem>
+        <Tags>
+          {project.tags?.slice(0, 5).map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+        </Tags>
+        <Actions>
+          <Btn
+            href={project.github || undefined}
+            target="_blank"
+            rel="noreferrer"
+            onClick={stop}
+            $disabled={!project.github}
+          >
+            <FaGithub /> Code
+          </Btn>
+          <Btn
+            $primary
+            href={project.webapp || undefined}
+            target="_blank"
+            rel="noreferrer"
+            onClick={stop}
+            $disabled={!project.webapp}
+          >
+            <FaExternalLinkAlt /> Live
+          </Btn>
+        </Actions>
+      </Body>
     </Card>
   );
 };

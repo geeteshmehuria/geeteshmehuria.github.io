@@ -1,22 +1,26 @@
+// Premium dark theme. Single theme (no toggle) for a cohesive, recruiter-ready look.
 export const darkTheme = {
-    bg:"#1C1C27",
-    bgLight: "#1C1E27",
-    primary:"#854CE6",
-    text_primary:"#F2F3F4",
-    text_secondary:"#b1b2b3",
-    card:"#171721",
-    card_light: '#191924',
-    button:"#854CE6",
-    white:"#FFFFFF",
-    black:"#000000",
-}
+  bg: "#0A0A0F",
+  bgLight: "#12121C",
+  // Brand accents
+  primary: "#8B5CF6", // violet
+  accent: "#22D3EE", // cyan
+  gradient: "linear-gradient(135deg, #8B5CF6 0%, #6366F1 45%, #22D3EE 100%)",
+  gradientSoft:
+    "linear-gradient(135deg, rgba(139,92,246,0.18) 0%, rgba(34,211,238,0.10) 100%)",
+  // Text
+  text_primary: "#F1F5F9",
+  text_secondary: "#9AA3B2",
+  // Surfaces
+  card: "rgba(255, 255, 255, 0.035)",
+  card_light: "rgba(255, 255, 255, 0.06)",
+  border: "rgba(255, 255, 255, 0.08)",
+  glass: "rgba(18, 18, 28, 0.55)",
+  button: "#8B5CF6",
+  white: "#FFFFFF",
+  black: "#000000",
+  shadow: "0 20px 50px -20px rgba(0, 0, 0, 0.7)",
+};
 
-export const lightTheme = {
-    bg:"#FFFFFF",
-    bgLight: "#f0f0f0",
-    primary:"#be1adb",
-    text_primary:"#111111",
-    text_secondary:"#48494a",
-    card:"#FFFFFF",
-    button:"#5c5b5b",
-}
+// Kept for compatibility; the app renders a single premium dark theme.
+export const lightTheme = darkTheme;
