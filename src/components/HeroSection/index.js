@@ -296,7 +296,7 @@ const HeroSection = () => {
           <Portrait>
             <Img
               src={HeroImg}
-              alt="Portrait of Geetesh Maihuria"
+              alt="Portrait of Geetesh Mehuria"
               width="360"
               height="360"
               fetchpriority="high"
