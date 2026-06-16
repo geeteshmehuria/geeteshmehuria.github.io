@@ -1,0 +1,15 @@
+{
+  "short_name": "Geetesh",
+  "name": "Geetesh Maihuria — Full Stack Developer",
+  "icons": [
+    {
+      "src": "HeroImage.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0A0A0F",
+  "background_color": "#0A0A0F"
+}
