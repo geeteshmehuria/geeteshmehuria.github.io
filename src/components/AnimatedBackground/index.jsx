@@ -3,23 +3,26 @@ import styled, { keyframes } from "styled-components";
 
 /*
   Fixed, full-viewport background that "moves while scrolling".
-  - Three soft gradient blobs that drift continuously (CSS keyframes)
-  - Parallax: blobs shift at different rates with scroll (transform only, GPU)
-  - A faint dotted grid + radial vignette for depth, no readability hit
-  - Scroll work is rAF-throttled and skipped entirely under prefers-reduced-motion
+  - Three soft gradient orbs that continuously drift (CSS keyframes) AND parallax
+    on scroll. Parallax lives on an OUTER wrapper, drift on the INNER orb, so the
+    two transforms never clobber each other.
+  - A faint dotted grid + radial vignette for depth, no readability hit.
+  - Scroll work is a single rAF-throttled listener writing one `--sy` variable;
+    every layer reads it via translate3d (GPU). Skipped entirely under
+    prefers-reduced-motion.
 */
 
 const drift1 = keyframes`
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(6%, 4%) scale(1.08); }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(6%, 4%, 0) scale(1.08); }
 `;
 const drift2 = keyframes`
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-5%, 6%) scale(1.12); }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-5%, 6%, 0) scale(1.12); }
 `;
 const drift3 = keyframes`
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(4%, -5%) scale(1.05); }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4%, -5%, 0) scale(1.05); }
 `;
 
 const Fixed = styled.div`
@@ -32,8 +35,70 @@ const Fixed = styled.div`
       rgba(139, 92, 246, 0.12),
       transparent 60%
     ),
+    radial-gradient(
+      900px 700px at 85% 110%,
+      rgba(34, 211, 238, 0.08),
+      transparent 60%
+    ),
     #0a0a0f;
   pointer-events: none;
+`;
+
+/* Outer wrapper carries the scroll parallax; inner orb carries the drift. */
+const OrbLayer = styled.div`
+  position: absolute;
+  will-change: transform;
+`;
+
+const Orb = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  will-change: transform;
+`;
+
+const Layer1 = styled(OrbLayer)`
+  width: 46vw;
+  height: 46vw;
+  max-width: 620px;
+  max-height: 620px;
+  top: -8%;
+  left: -6%;
+  transform: translate3d(0, calc(var(--sy, 0) * 0.14px), 0);
+`;
+const Layer2 = styled(OrbLayer)`
+  width: 42vw;
+  height: 42vw;
+  max-width: 560px;
+  max-height: 560px;
+  top: 30%;
+  right: -10%;
+  left: auto;
+  transform: translate3d(0, calc(var(--sy, 0) * -0.1px), 0);
+`;
+const Layer3 = styled(OrbLayer)`
+  width: 40vw;
+  height: 40vw;
+  max-width: 520px;
+  max-height: 520px;
+  bottom: -12%;
+  left: 25%;
+  transform: translate3d(0, calc(var(--sy, 0) * 0.08px), 0);
+`;
+
+const Orb1 = styled(Orb)`
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.55), transparent 70%);
+  animation: ${drift1} 22s ease-in-out infinite;
+`;
+const Orb2 = styled(Orb)`
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.4), transparent 70%);
+  animation: ${drift2} 26s ease-in-out infinite;
+`;
+const Orb3 = styled(Orb)`
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.45), transparent 70%);
+  animation: ${drift3} 30s ease-in-out infinite;
 `;
 
 const Grid = styled.div`
@@ -43,51 +108,10 @@ const Grid = styled.div`
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 56px 56px;
   /* Parallax offset driven by --sy (set on scroll) */
-  transform: translateY(calc(var(--sy, 0) * 0.06px));
+  transform: translate3d(0, calc(var(--sy, 0) * 0.05px), 0);
+  will-change: transform;
   mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 78%);
   -webkit-mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 78%);
-`;
-
-const Blob = styled.div`
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.5;
-  will-change: transform;
-`;
-
-const Blob1 = styled(Blob)`
-  width: 46vw;
-  height: 46vw;
-  max-width: 620px;
-  max-height: 620px;
-  top: -8%;
-  left: -6%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.55), transparent 70%);
-  animation: ${drift1} 22s ease-in-out infinite;
-  transform: translateY(calc(var(--sy, 0) * 0.12px));
-`;
-const Blob2 = styled(Blob)`
-  width: 42vw;
-  height: 42vw;
-  max-width: 560px;
-  max-height: 560px;
-  top: 30%;
-  right: -10%;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.4), transparent 70%);
-  animation: ${drift2} 26s ease-in-out infinite;
-  transform: translateY(calc(var(--sy, 0) * -0.1px));
-`;
-const Blob3 = styled(Blob)`
-  width: 40vw;
-  height: 40vw;
-  max-width: 520px;
-  max-height: 520px;
-  bottom: -12%;
-  left: 25%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.45), transparent 70%);
-  animation: ${drift3} 30s ease-in-out infinite;
-  transform: translateY(calc(var(--sy, 0) * 0.08px));
 `;
 
 const AnimatedBackground = () => {
@@ -122,9 +146,15 @@ const AnimatedBackground = () => {
 
   return (
     <Fixed ref={rootRef} aria-hidden="true">
-      <Blob1 />
-      <Blob2 />
-      <Blob3 />
+      <Layer1>
+        <Orb1 />
+      </Layer1>
+      <Layer2>
+        <Orb2 />
+      </Layer2>
+      <Layer3>
+        <Orb3 />
+      </Layer3>
       <Grid />
     </Fixed>
   );

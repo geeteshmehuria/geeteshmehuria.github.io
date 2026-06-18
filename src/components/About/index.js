@@ -2,8 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { HiOutlineCpuChip, HiOutlineArrowPath } from "react-icons/hi2";
 import { HiOutlineCode } from "react-icons/hi";
-import { SectionWrap, SectionInner, Kicker, Heading } from "../ui/Section";
+import { SectionWrap, SectionInner, Kicker, Heading, Glow } from "../ui/Section";
+import { tiltCard } from "../ui/effects";
+import { useTilt } from "../../hooks/useTilt";
 import Reveal from "../Reveal";
+import Parallax from "../Parallax";
+
+const GlowAccent = styled(Glow)`
+  width: 560px;
+  height: 560px;
+  top: -120px;
+  left: -180px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 70%);
+`;
 
 const Body = styled.div`
   max-width: 760px;
@@ -38,9 +49,9 @@ const Card = styled.div`
   padding: 26px 22px;
   text-align: left;
   height: 100%;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  ${tiltCard}
   &:hover {
-    transform: translateY(-6px);
+    --lift: -6px;
     border-color: ${({ theme }) => theme.primary};
     background: ${({ theme }) => theme.card_light};
   }
@@ -92,9 +103,21 @@ const highlights = [
   },
 ];
 
+const HighlightCard = ({ item }) => {
+  const tiltRef = useTilt(6);
+  return (
+    <Card ref={tiltRef}>
+      <IconBox>{item.icon}</IconBox>
+      <CardTitle>{item.title}</CardTitle>
+      <CardText>{item.text}</CardText>
+    </Card>
+  );
+};
+
 const About = () => {
   return (
     <SectionWrap id="about">
+      <Parallax as={GlowAccent} speed={0.16} max={110} aria-hidden="true" />
       <SectionInner>
         <Reveal>
           <Kicker>About Me</Kicker>
@@ -118,11 +141,7 @@ const About = () => {
         <Cards>
           {highlights.map((h, i) => (
             <Reveal key={h.title} delay={120 + i * 110}>
-              <Card>
-                <IconBox>{h.icon}</IconBox>
-                <CardTitle>{h.title}</CardTitle>
-                <CardText>{h.text}</CardText>
-              </Card>
+              <HighlightCard item={h} />
             </Reveal>
           ))}
         </Cards>

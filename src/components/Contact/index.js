@@ -2,8 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { Bio } from "../../data/constants";
-import { SectionWrap, SectionInner, Kicker, Heading, Lead } from "../ui/Section";
+import { SectionWrap, SectionInner, Kicker, Heading, Lead, Glow } from "../ui/Section";
 import Reveal from "../Reveal";
+import Parallax from "../Parallax";
+
+const GlowAccent = styled(Glow)`
+  width: 620px;
+  height: 620px;
+  bottom: -200px;
+  right: -180px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.18), transparent 70%);
+`;
 
 const Grid = styled.div`
   display: grid;
@@ -107,6 +116,7 @@ const Contact = () => {
 
   return (
     <SectionWrap id="contact">
+      <Parallax as={GlowAccent} speed={-0.14} max={120} aria-hidden="true" />
       <SectionInner>
         <Reveal>
           <Kicker>Contact</Kicker>

@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { FaGithub, FaExternalLinkAlt, FaStar } from "react-icons/fa";
 import { HiOutlinePhotograph } from "react-icons/hi";
+import { tiltCard } from "../ui/effects";
+import { useTilt } from "../../hooks/useTilt";
 
 const Card = styled.div`
   display: flex;
@@ -12,9 +14,9 @@ const Card = styled.div`
   border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  ${tiltCard}
   &:hover {
-    transform: translateY(-8px);
+    --lift: -8px;
     border-color: ${({ theme }) => theme.primary};
     box-shadow: 0 24px 50px -24px rgba(139, 92, 246, 0.55);
   }
@@ -151,8 +153,9 @@ const Btn = styled.a`
 const stop = (e) => e.stopPropagation();
 
 const ProjectCards = ({ project, setOpenModal }) => {
+  const tiltRef = useTilt(7);
   return (
-    <Card onClick={() => setOpenModal({ state: true, project })}>
+    <Card ref={tiltRef} onClick={() => setOpenModal({ state: true, project })}>
       <Thumb>
         {project.featured && (
           <Featured>

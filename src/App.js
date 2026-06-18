@@ -3,6 +3,7 @@ import { useState } from "react";
 import { darkTheme } from "./utils/Themes.js";
 import "./App.css";
 import AnimatedBackground from "./components/AnimatedBackground";
+import ScrollProgress from "./components/ScrollProgress";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import About from "./components/About";
@@ -20,6 +21,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <AnimatedBackground />
+      <ScrollProgress />
       <Navbar />
       <main>
         <HeroSection />

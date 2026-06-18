@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { skills } from "../../data/constants";
 import { SectionWrap, SectionInner, Kicker, Heading, Lead } from "../ui/Section";
+import { tiltCard } from "../ui/effects";
+import { useTilt } from "../../hooks/useTilt";
 import Reveal from "../Reveal";
 
 const Grid = styled.div`
@@ -17,9 +19,9 @@ const Card = styled.div`
   border-radius: 18px;
   padding: 26px 26px 30px;
   backdrop-filter: blur(6px);
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  ${tiltCard}
   &:hover {
-    transform: translateY(-5px);
+    --lift: -5px;
     border-color: ${({ theme }) => theme.primary};
   }
 `;
@@ -65,6 +67,20 @@ const Chip = styled.span`
   }
 `;
 
+const SkillCard = ({ group }) => {
+  const tiltRef = useTilt(6);
+  return (
+    <Card ref={tiltRef}>
+      <CardTitle>{group.title}</CardTitle>
+      <Chips>
+        {group.items.map((item) => (
+          <Chip key={item}>{item}</Chip>
+        ))}
+      </Chips>
+    </Card>
+  );
+};
+
 const Skills = () => {
   return (
     <SectionWrap id="skills">
@@ -80,14 +96,7 @@ const Skills = () => {
         <Grid>
           {skills.map((group, i) => (
             <Reveal key={group.title} delay={i * 90}>
-              <Card>
-                <CardTitle>{group.title}</CardTitle>
-                <Chips>
-                  {group.items.map((item) => (
-                    <Chip key={item}>{item}</Chip>
-                  ))}
-                </Chips>
-              </Card>
+              <SkillCard group={group} />
             </Reveal>
           ))}
         </Grid>

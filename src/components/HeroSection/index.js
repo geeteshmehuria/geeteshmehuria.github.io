@@ -4,6 +4,10 @@ import Typewriter from "typewriter-effect";
 import { FaGithub, FaLinkedin, FaArrowRight } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
 import { Bio } from "../../data/constants";
+import { Glow } from "../ui/Section";
+import { shimmerBrand } from "../ui/effects";
+import Parallax from "../Parallax";
+import { usePointerParallax } from "../../hooks/usePointerParallax";
 import HeroImg from "../../images/HeroImage.jpg";
 import resume from "../resume/Geetesh-Mehuria-Resume.pdf";
 
@@ -15,31 +19,62 @@ const float = keyframes`
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-16px); }
 `;
+const pulse = keyframes`
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.82; }
+`;
+const scrollDot = keyframes`
+  0% { opacity: 0; transform: translate(-50%, 0); }
+  35% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, 12px); }
+`;
 
 const Section = styled.section`
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 100px 24px 60px;
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(120px, 18vh, 190px) clamp(20px, 6vw, 80px) clamp(70px, 10vh, 110px);
   @media (max-width: 860px) {
     min-height: auto;
-    padding: 110px 20px 60px;
+    padding: 120px 20px 70px;
   }
 `;
 
+/* Section-level parallax glow orbs for depth */
+const GlowTop = styled(Glow)`
+  width: 620px;
+  height: 620px;
+  top: -180px;
+  left: -150px;
+  opacity: 0.55;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.28), transparent 70%);
+`;
+const GlowBottom = styled(Glow)`
+  width: 560px;
+  height: 560px;
+  bottom: -200px;
+  right: -130px;
+  opacity: 0.45;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.2), transparent 70%);
+`;
+
 const Inner = styled.div`
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 48px;
+  gap: clamp(40px, 5vw, 72px);
   @media (max-width: 860px) {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 36px;
+    gap: 44px;
   }
 `;
 
@@ -82,17 +117,14 @@ const Eyebrow = styled.div`
 
 const Title = styled.h1`
   font-family: var(--font-display);
-  font-size: clamp(38px, 6vw, 62px);
+  font-size: clamp(40px, 6.4vw, 68px);
   line-height: 1.05;
   font-weight: 800;
   color: ${({ theme }) => theme.text_primary};
   letter-spacing: -0.02em;
   margin-bottom: 14px;
   & .name {
-    background: ${({ theme }) => theme.gradient};
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${shimmerBrand}
   }
 `;
 
@@ -218,9 +250,48 @@ const Right = styled.div`
   animation: ${fadeUp} 0.8s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
 `;
 
+const PortraitWrap = styled.div`
+  position: relative;
+  width: clamp(250px, 32vw, 380px);
+`;
+
+/*
+  Soft gradient aura behind the portrait. Blur is STATIC (rasterized once);
+  only opacity animates (compositor-friendly) — no per-frame re-rasterization,
+  so it stays smooth and cheap.
+*/
+const Aura = styled.div`
+  position: absolute;
+  inset: -24%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 42%,
+    rgba(139, 92, 246, 0.55),
+    rgba(34, 211, 238, 0.22) 52%,
+    transparent 72%
+  );
+  filter: blur(46px);
+  animation: ${pulse} 7s ease-in-out infinite;
+  /* Drifts with the cursor (behind the portrait, moves more for depth) */
+  transform: translate3d(calc(var(--mx, 0) * 16px), calc(var(--my, 0) * 16px), 0);
+  transition: transform 0.3s ease-out;
+`;
+
+/* Carries the cursor-driven tilt + counter-drift of the portrait itself. */
+const PortraitMove = styled.div`
+  position: relative;
+  z-index: 1;
+  transform: perspective(900px) rotateY(calc(var(--mx, 0) * 6deg))
+    rotateX(calc(var(--my, 0) * -6deg))
+    translate3d(calc(var(--mx, 0) * -7px), calc(var(--my, 0) * -7px), 0);
+  transition: transform 0.3s ease-out;
+`;
+
 const Portrait = styled.div`
   position: relative;
-  width: clamp(240px, 32vw, 360px);
+  z-index: 1;
+  width: 100%;
   aspect-ratio: 1;
   animation: ${float} 6s ease-in-out infinite;
   &::before {
@@ -254,9 +325,57 @@ const Img = styled.img`
   z-index: 1;
 `;
 
+const ScrollCue = styled.a`
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: ${({ theme }) => theme.text_secondary};
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  &:hover {
+    opacity: 1;
+    color: ${({ theme }) => theme.text_primary};
+  }
+  & .mouse {
+    position: relative;
+    width: 24px;
+    height: 38px;
+    border: 2px solid ${({ theme }) => theme.border};
+    border-radius: 12px;
+  }
+  & .mouse::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 7px;
+    border-radius: 2px;
+    background: ${({ theme }) => theme.accent};
+    animation: ${scrollDot} 1.7s ease-in-out infinite;
+  }
+  @media (max-width: 860px) {
+    display: none;
+  }
+`;
+
 const HeroSection = () => {
+  const heroRef = usePointerParallax();
   return (
-    <Section id="home">
+    <Section id="home" ref={heroRef}>
+      <Parallax as={GlowTop} speed={0.2} max={140} aria-hidden="true" />
+      <Parallax as={GlowBottom} speed={-0.16} max={140} aria-hidden="true" />
       <Inner>
         <Left>
           <Eyebrow>
@@ -307,17 +426,27 @@ const HeroSection = () => {
         </Left>
 
         <Right>
-          <Portrait>
-            <Img
-              src={HeroImg}
-              alt="Portrait of Geetesh Mehuria"
-              width="360"
-              height="360"
-              fetchpriority="high"
-            />
-          </Portrait>
+          <PortraitWrap>
+            <Aura aria-hidden="true" />
+            <PortraitMove>
+              <Portrait>
+                <Img
+                  src={HeroImg}
+                  alt="Portrait of Geetesh Mehuria"
+                  width="380"
+                  height="380"
+                  fetchpriority="high"
+                />
+              </Portrait>
+            </PortraitMove>
+          </PortraitWrap>
         </Right>
       </Inner>
+
+      <ScrollCue href="#about" aria-label="Scroll to About">
+        <span className="mouse" />
+        Scroll
+      </ScrollCue>
     </Section>
   );
 };

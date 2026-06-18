@@ -41,6 +41,29 @@ body {
   transform: none;
 }
 
+/* Directional reveal variants (set via <Reveal variant="left|right|scale" />) */
+.reveal--left {
+  transform: translateX(-44px);
+}
+.reveal--right {
+  transform: translateX(44px);
+}
+.reveal--scale {
+  transform: scale(0.94);
+}
+.reveal--left.is-visible,
+.reveal--right.is-visible,
+.reveal--scale.is-visible {
+  transform: none;
+}
+
+/* Media never overflows its container (full-bleed parallax safety) */
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
