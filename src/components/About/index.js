@@ -87,8 +87,8 @@ const highlights = [
   },
   {
     icon: <HiOutlineArrowPath />,
-    title: "Legacy → Modern Migration",
-    text: "Modernizing legacy systems into maintainable, performant Svelte + FastAPI architectures.",
+    title: "SaaS & Database-Driven Apps",
+    text: "Building SaaS features and database-backed workflows on PostgreSQL, with clean APIs and protected pages.",
   },
 ];
 
@@ -102,16 +102,17 @@ const About = () => {
         </Reveal>
         <Reveal delay={80}>
           <Body>
-            I'm a <strong>Full Stack Developer</strong> who enjoys building
-            modern, AI-powered web applications. My day-to-day focuses on{" "}
-            <strong>Svelte / SvelteKit</strong> on the frontend and{" "}
-            <strong>FastAPI, Python, and PostgreSQL</strong> on the backend. A
-            big part of my recent work has been{" "}
-            <strong>migrating a legacy system to a modern v2 stack</strong> —
-            rebuilding the UI, designing clean APIs, improving auth/security,
-            and integrating <strong>AI/GenAI</strong> capabilities to make the
-            product more useful. I care about readable code, good UX, and
-            shipping things that actually work.
+            I'm a <strong>Full Stack Developer with 2+ years of experience</strong>{" "}
+            building modern web applications, SaaS features, and AI-powered
+            tools. I work across frontend, backend, and database layers using{" "}
+            <strong>Svelte, React, Python, FastAPI, Node.js, PostgreSQL,
+            MongoDB,</strong> and <strong>Tailwind CSS</strong>. My recent work
+            includes building features for SaaS platforms such as{" "}
+            <strong>Perseptiv</strong> — designing clean APIs, improving UI/UX
+            and auth flows, maintaining database-driven workflows, and
+            integrating <strong>AI/GenAI</strong> capabilities. I enjoy building
+            practical products that solve real problems, with a focus on clean
+            UI, reliable APIs, and maintainable code.
           </Body>
         </Reveal>
         <Cards>

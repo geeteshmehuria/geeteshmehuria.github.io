@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaStar } from "react-icons/fa";
 import { HiOutlinePhotograph } from "react-icons/hi";
 
 const Card = styled.div`
@@ -37,6 +37,25 @@ const Thumb = styled.div`
   }
 `;
 
+const Featured = styled.span`
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  background: ${({ theme }) => theme.gradient};
+  box-shadow: 0 8px 20px -8px rgba(139, 92, 246, 0.9);
+`;
+
 const Placeholder = styled.div`
   width: 100%;
   height: 100%;
@@ -69,6 +88,12 @@ const Title = styled.h3`
   font-size: 19px;
   font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
+`;
+
+const Subtitle = styled.span`
+  font-size: 14px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.text_secondary};
 `;
 
 const Problem = styled.p`
@@ -129,6 +154,11 @@ const ProjectCards = ({ project, setOpenModal }) => {
   return (
     <Card onClick={() => setOpenModal({ state: true, project })}>
       <Thumb>
+        {project.featured && (
+          <Featured>
+            <FaStar /> Featured
+          </Featured>
+        )}
         {project.image ? (
           <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
         ) : (
@@ -139,7 +169,10 @@ const ProjectCards = ({ project, setOpenModal }) => {
         )}
       </Thumb>
       <Body>
-        <Title>{project.title}</Title>
+        <Title>
+          {project.title}
+          {project.subtitle && <Subtitle> · {project.subtitle}</Subtitle>}
+        </Title>
         <Problem>{project.problem || project.description}</Problem>
         <Tags>
           {project.tags?.slice(0, 5).map((tag) => (
@@ -154,7 +187,7 @@ const ProjectCards = ({ project, setOpenModal }) => {
             onClick={stop}
             $disabled={!project.github}
           >
-            <FaGithub /> Code
+            <FaGithub /> {project.github ? "Code" : "Soon"}
           </Btn>
           <Btn
             $primary
@@ -164,7 +197,7 @@ const ProjectCards = ({ project, setOpenModal }) => {
             onClick={stop}
             $disabled={!project.webapp}
           >
-            <FaExternalLinkAlt /> Live
+            <FaExternalLinkAlt /> {project.webapp ? "Live" : "Soon"}
           </Btn>
         </Actions>
       </Body>

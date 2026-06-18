@@ -5,8 +5,10 @@ export const Bio = {
     "Svelte + FastAPI Engineer",
     "AI App Developer",
   ],
+  experience: "2+ Years Experience",
+  stack: "Svelte • Python • FastAPI • PostgreSQL • AI Apps",
   description:
-    "I build modern, AI-powered web applications end to end — from clean Svelte/SvelteKit interfaces to fast, well-structured FastAPI services backed by PostgreSQL. I enjoy turning legacy systems into maintainable, performant products and integrating LLMs to make apps genuinely useful.",
+    "Full Stack Developer with 2+ years of experience building modern web applications, SaaS features, and AI-powered tools. I work across frontend, backend, and database layers using Svelte, React, Python, FastAPI, Node.js, PostgreSQL, MongoDB, and Tailwind CSS — with a focus on clean UI, reliable APIs, and maintainable code.",
   github: "https://github.com/geeteshmehuria",
   // Resume is bundled in the repo (src/components/resume) and used directly by
   // the Navbar/Hero buttons; this link is kept for reference.
@@ -26,38 +28,51 @@ export const skills = [
   {
     title: "Frontend",
     items: [
-      "Svelte",
-      "SvelteKit",
+      "HTML",
+      "CSS",
       "JavaScript",
       "TypeScript",
+      "Svelte",
+      "SvelteKit",
+      "React.js",
+      "Redux",
       "Tailwind CSS",
+      "Tailwind CSS v4",
       "shadcn-svelte",
+      "Chakra UI",
       "Bootstrap",
+      "SASS",
     ],
   },
   {
     title: "Backend",
-    items: ["Python", "FastAPI", "Node.js"],
+    items: ["Python", "FastAPI", "Node.js", "Express.js", "Java", "REST APIs"],
   },
   {
     title: "Database",
-    items: ["PostgreSQL"],
+    items: ["PostgreSQL", "MongoDB", "MySQL", "SQL"],
   },
   {
-    title: "AI / GenAI",
-    items: ["Gemini API", "Claude API", "Prompt Engineering"],
-  },
-  {
-    title: "Tools",
-    items: ["Git", "GitHub", "Docker (basics)", "uv", "pnpm"],
-  },
-  {
-    title: "Testing & Deployment",
+    title: "AI / API Integration",
     items: [
-      "Pytest (basics)",
-      "Playwright (basics)",
-      "GitHub Pages",
-      "Cloud Deployment",
+      "Gemini API",
+      "Claude API",
+      "OpenAI API",
+      "AI Integration",
+      "Prompt Engineering",
+    ],
+  },
+  {
+    title: "Tools & Platforms",
+    items: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Postman",
+      "Vercel",
+      "Netlify",
+      "Wappler",
+      "Chart.js",
     ],
   },
 ];
@@ -68,22 +83,25 @@ export const experiences = [
     role: "Full Stack Developer",
     company: "Slashash",
     date: "March 2024 - Present",
-    desc: "Building software that streamlines complex workflows for small/medium businesses and enterprises — both greenfield apps and modernization of existing systems.",
+    desc: "Working as a Full Stack Developer on SaaS-based business applications, including Perseptiv. I build frontend features with Svelte/SvelteKit, develop and integrate Python/FastAPI backend APIs, work with PostgreSQL data flows, improve UI/UX, debug production-style issues, and modernize complex business workflows.",
     bullets: [
-      "Migrating a legacy (Wappler-based) system to a modern Svelte/SvelteKit + FastAPI stack, improving maintainability and performance.",
-      "Designing and building FastAPI REST APIs and a PostgreSQL data layer for reliable, well-structured backends.",
-      "Implementing authentication and security improvements as part of the platform overhaul.",
-      "Rebuilding the UI/UX with SvelteKit, Tailwind, and shadcn-svelte for a cleaner, responsive experience.",
-      "Integrating AI features using the Gemini and Claude APIs to add genuinely useful product capabilities.",
+      "Built and improved features for the Perseptiv SaaS platform using Svelte/SvelteKit, Tailwind, and shadcn-svelte.",
+      "Designed and integrated Python/FastAPI REST APIs backed by a PostgreSQL data layer.",
+      "Improved UI/UX and implemented authentication / protected-page flows for a cleaner, more secure experience.",
+      "Debugged production-style issues and modernized complex business workflows for better maintainability.",
     ],
     skills: [
       "Svelte",
       "SvelteKit",
-      "FastAPI",
       "Python",
+      "FastAPI",
       "PostgreSQL",
       "Tailwind CSS",
-      "AI APIs",
+      "shadcn-svelte",
+      "JavaScript",
+      "Wappler",
+      "Node.js",
+      "Bootstrap",
     ],
   },
 ];
@@ -111,35 +129,110 @@ export const education = [
   },
 ];
 
-// NOTE: Placeholder content — replace problem/features/links with real details.
+// Featured projects shown in the Projects section, in display order.
 // `image: null` renders a clean screenshot placeholder in the card.
 export const projects = [
   {
     id: 1,
     title: "AlgoLens AI",
     problem:
-      "An AI-powered platform that helps learners understand Data Structures & Algorithms with guided, interactive explanations.",
+      "An AI-powered DSA learning platform that brings learning, practice, AI feedback, and spaced-repetition revision into one place.",
     description:
-      "AlgoLens AI is an AI-powered DSA learning platform that breaks down algorithms and data structures into clear, interactive explanations to make problem-solving easier to learn.",
-    tags: ["Svelte", "FastAPI", "Python", "PostgreSQL", "LLM API"],
-    features: [
-      "AI-guided explanations of DSA problems",
-      "Interactive, learner-friendly UI",
-      "FastAPI backend with PostgreSQL",
+      "AlgoLens AI is an AI-powered Data Structures & Algorithms learning platform. It helps users learn through structured topic notes, practice problems, AI-generated explanations and pseudocode, code review, spaced-repetition revision, progress tracking, and a modern learning dashboard. Built with SvelteKit and a FastAPI + PostgreSQL backend, using Google Gemini for AI features, with all AI output validated and cached.",
+    tags: [
+      "SvelteKit",
+      "Tailwind CSS v4",
+      "shadcn-svelte",
+      "FastAPI",
+      "Python",
+      "PostgreSQL / Aiven",
+      "Gemini API",
     ],
-    image: null,
-    github: "https://github.com/geeteshmehuria",
-    webapp: "",
+    features: [
+      "AI-generated topic notes, explanations, hints, and code review",
+      "Topic-wise curriculum, practice problems, and a learning dashboard",
+      "Spaced-repetition revision queue and progress tracking",
+      "Secure JWT auth with protected pages and role-based admin access",
+      "SvelteKit frontend with a FastAPI + PostgreSQL (Aiven) backend",
+    ],
+    image:
+      "https://github.com/user-attachments/assets/1ae1911e-a264-4fec-90fb-96ec88e05abc",
+    github: "https://github.com/geeteshmehuria/algolens_ai",
+    webapp: "https://algolens-ai.vercel.app",
     featured: true,
   },
   {
     id: 2,
-    title: "Chefbot (Prodigies)",
+    title: "AI Code Review Tool",
     problem:
-      "An AI-powered recipe generator that helps users discover and create recipes for a seamless culinary experience.",
+      "A developer tool that uses AI to review code and surface actionable, structured feedback.",
     description:
-      "A single-page recipe generator built with React + TypeScript and Tailwind CSS on the frontend, and Node.js, Express.js, and MongoDB on the backend. It uses the OpenAI and DeepAI APIs to generate recipes and imagery, turning ingredients and ideas into ready-to-cook dishes.",
-    tags: ["React + TypeScript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "OpenAI"],
+      "An AI-powered developer tool where users paste or upload code and receive structured feedback on bugs, code quality, security concerns, refactoring suggestions, and improvement opportunities. The project demonstrates AI integration, backend API design, prompt handling, and a practical developer workflow.",
+    tags: [
+      "SvelteKit",
+      "FastAPI",
+      "Python",
+      "Gemini API",
+      "Tailwind CSS",
+      "shadcn-svelte",
+    ],
+    features: [
+      "Paste or upload code for an automated AI review",
+      "Structured feedback: bugs, quality, security, and refactoring",
+      "LLM integration with careful prompt handling",
+      "Backend API design for a practical developer workflow",
+    ],
+    image: null,
+    github: "",
+    webapp: "",
+    featured: false,
+  },
+  {
+    id: 3,
+    title: "Samrat-Hospital-Clone",
+    problem:
+      "A responsive healthcare website clone built to practice modern frontend development and healthcare-focused user flows.",
+    description:
+      "A responsive healthcare website clone inspired by Samrat Hospital, built to practice modern frontend development, routing, UI structure, responsive layouts, and healthcare-focused user flows. The project includes hospital-style sections, service presentation, clean navigation, and appointment/user-facing UI patterns.",
+    tags: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Redux",
+      "Chakra UI",
+      "Tailwind CSS",
+      "JSON Server",
+    ],
+    features: [
+      "Hospital-style sections with clear service presentation",
+      "Responsive layouts and clean navigation",
+      "Appointment / user-facing UI patterns",
+      "Routing and structured UI built with React + Redux",
+    ],
+    image:
+      "https://github.com/geeteshmehuria/c-sharp-samrat-2345/assets/70647591/edb60b30-2010-4bfb-9cf6-77abe5d4ff1e",
+    github: "https://github.com/geeteshmehuria/c-sharp-samrat-2345",
+    webapp: "https://c-sharp-sam.vercel.app/",
+    featured: false,
+  },
+  {
+    id: 4,
+    title: "Chefbot",
+    subtitle: "Prodigies",
+    problem:
+      "A full-stack AI recipe generator that helps users discover and create recipes with AI-powered suggestions.",
+    description:
+      "A full-stack AI recipe generator that helps users discover and create recipes using AI-powered suggestions. Built with React, TypeScript, Tailwind CSS, Node.js, Express, and MongoDB, and integrating the OpenAI and DeepAI APIs to deliver a smooth and interactive cooking assistant experience.",
+    tags: [
+      "React + TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "OpenAI API",
+      "DeepAI API",
+    ],
     features: [
       "AI-generated recipes via the OpenAI API",
       "AI imagery using the DeepAI API",
@@ -149,24 +242,6 @@ export const projects = [
       "https://github.com/SreeHarsha-Kamisetty/Prodigies/assets/146928943/43871c40-ea78-42a7-9035-105e54518a86",
     github: "https://github.com/geeteshmehuria/Prodigies",
     webapp: "https://chef-bot-six.vercel.app/",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "AI Code Review Tool",
-    problem:
-      "Automating code review feedback using LLMs to speed up the development loop.",
-    description:
-      "A tool that uses LLM APIs to review code and surface actionable feedback, helping catch issues earlier and keep code quality high.",
-    tags: ["Python", "FastAPI", "Claude API", "Gemini API"],
-    features: [
-      "LLM-powered code analysis and feedback",
-      "Integrates Claude/Gemini APIs",
-      "Prompt engineering for reliable reviews",
-    ],
-    image: null,
-    github: "https://github.com/geeteshmehuria",
-    webapp: "",
     featured: false,
   },
 ];

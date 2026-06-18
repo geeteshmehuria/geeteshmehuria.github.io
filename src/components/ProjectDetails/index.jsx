@@ -180,7 +180,10 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
           )}
         </Cover>
         <Content>
-          <Title>{project.title}</Title>
+          <Title>
+            {project.title}
+            {project.subtitle ? ` · ${project.subtitle}` : ""}
+          </Title>
           <Tags>
             {project.tags?.map((t) => (
               <Tag key={t}>{t}</Tag>
@@ -204,7 +207,7 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
               rel="noreferrer"
               $disabled={!project.github}
             >
-              <FaGithub /> View Code
+              <FaGithub /> {project.github ? "View Code" : "Code coming soon"}
             </Btn>
             <Btn
               $primary
@@ -213,7 +216,8 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
               rel="noreferrer"
               $disabled={!project.webapp}
             >
-              <FaExternalLinkAlt /> Live Demo
+              <FaExternalLinkAlt />{" "}
+              {project.webapp ? "Live Demo" : "Live demo coming soon"}
             </Btn>
           </Actions>
         </Content>

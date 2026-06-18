@@ -113,6 +113,19 @@ const RoleLine = styled.div`
   }
 `;
 
+const StackLine = styled.div`
+  display: inline-flex;
+  align-items: center;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: ${({ theme }) => theme.accent};
+  margin-bottom: 22px;
+  @media (max-width: 860px) {
+    justify-content: center;
+  }
+`;
+
 const Desc = styled.p`
   max-width: 560px;
   font-size: 17px;
@@ -247,7 +260,7 @@ const HeroSection = () => {
       <Inner>
         <Left>
           <Eyebrow>
-            <span className="dot" /> Available for opportunities
+            <span className="dot" /> {Bio.experience} · Full Stack Developer
           </Eyebrow>
           <Title>
             Hi, I'm <span className="name">{Bio.name}</span>
@@ -260,6 +273,7 @@ const HeroSection = () => {
               />
             </span>
           </RoleLine>
+          <StackLine>{Bio.stack}</StackLine>
           <Desc>{Bio.description}</Desc>
           <div>
             <Ctas>
