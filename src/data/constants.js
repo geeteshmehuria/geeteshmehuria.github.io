@@ -134,6 +134,39 @@ export const education = [
 export const projects = [
   {
     id: 1,
+    title: "DevReview AI",
+    problem:
+      "Manual code review is slow and inconsistent - security issues and technical debt slip through. DevReview AI gives developers an instant, structured AI review of any repository, pull request, or code snippet.",
+    description:
+      "DevReview AI is a production-deployed, full-stack AI code review platform. Developers sign in with GitHub, import repositories, and get AI-powered analysis in seconds: security vulnerabilities (OWASP/CWE), performance issues, code smells, and technical debt - each scored across six categories with actionable fix suggestions. Pull requests get a risk score and a merge verdict from the live diff. A provider-abstraction layer runs Google Gemini as the primary model with OpenAI and Claude fallbacks. Built with Next.js 15 + React 19 on the frontend and FastAPI + PostgreSQL + Redis on the backend, deployed on Vercel and Render with Docker-based local development.",
+    tags: [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "Redis",
+      "Google Gemini",
+      "Docker",
+    ],
+    features: [
+      "AI reviews of repos, PRs, and code snippets scored across 6 categories",
+      "Security findings with severity, CWE tags, and concrete fixes",
+      "PR risk scoring with an AI merge verdict from the live GitHub diff",
+      "Repository health tracking with historical trend charts",
+      "GitHub OAuth with JWT refresh rotation and edge-protected routes",
+      "Gemini-first AI layer with OpenAI and Claude fallbacks",
+    ],
+    image:
+      "https://raw.githubusercontent.com/geeteshmehuria/devreview-ai/main/docs/screenshots/dashboard.png",
+    github: "https://github.com/geeteshmehuria/devreview-ai",
+    webapp: "https://devreview-ai-mu.vercel.app",
+    featured: true,
+  },
+  {
+    id: 2,
     title: "AlgoLens AI",
     problem:
       "An AI-powered DSA learning platform that brings learning, practice, AI feedback, and spaced-repetition revision into one place.",
@@ -160,32 +193,6 @@ export const projects = [
     github: "https://github.com/geeteshmehuria/algolens_ai",
     webapp: "https://algolens-ai.vercel.app",
     featured: true,
-  },
-  {
-    id: 2,
-    title: "AI Code Review Tool",
-    problem:
-      "A developer tool that uses AI to review code and surface actionable, structured feedback.",
-    description:
-      "An AI-powered developer tool where users paste or upload code and receive structured feedback on bugs, code quality, security concerns, refactoring suggestions, and improvement opportunities. The project demonstrates AI integration, backend API design, prompt handling, and a practical developer workflow.",
-    tags: [
-      "SvelteKit",
-      "FastAPI",
-      "Python",
-      "Gemini API",
-      "Tailwind CSS",
-      "shadcn-svelte",
-    ],
-    features: [
-      "Paste or upload code for an automated AI review",
-      "Structured feedback: bugs, quality, security, and refactoring",
-      "LLM integration with careful prompt handling",
-      "Backend API design for a practical developer workflow",
-    ],
-    image: null,
-    github: "",
-    webapp: "",
-    featured: false,
   },
   {
     id: 3,
