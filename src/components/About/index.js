@@ -125,7 +125,7 @@ const About = () => {
         </Reveal>
         <Reveal delay={80}>
           <Body>
-            I'm a <strong>Full Stack Developer with 2+ years of experience</strong>{" "}
+            I'm a <strong>Full Stack Developer with 2.5 years of experience</strong>{" "}
             building modern web applications, SaaS features, and AI-powered
             tools. I work across frontend, backend, and database layers using{" "}
             <strong>Svelte, React, Python, FastAPI, Node.js, PostgreSQL,
