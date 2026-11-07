@@ -1,3 +1,5 @@
+import royanBrewsImg from "../images/royan-brews.png";
+
 export const Bio = {
   name: "Geetesh Mehuria",
   roles: [
@@ -195,10 +197,10 @@ export const projects = [
       "Android app with Firebase push notifications via Capacitor",
       "Feature-based FastAPI backend with a Pytest suite for every feature",
     ],
-    image: null,
+    image: royanBrewsImg,
     github: "https://github.com/geeteshmehuria/ro-yan-brews",
     webapp: "https://ro-yan-brews.vercel.app",
-    featured: true,
+    featured: false,
   },
   {
     id: 2,
