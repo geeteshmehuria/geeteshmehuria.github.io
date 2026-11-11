@@ -1,4 +1,4 @@
-import royanBrewsImg from "../images/royan-brews.png";
+import mrMomoImg from "../images/mr-momo.png";
 
 export const Bio = {
   name: "Geetesh Mehuria",
@@ -171,12 +171,12 @@ export const projects = [
   },
   {
     id: 5,
-    title: "Ro-Yan Brews",
+    title: "Mr. Momo",
     subtitle: "Food Ordering App",
     problem:
-      "A busy fast-food stall needed customers to order ahead and pick up without queuing, and the owner needed one live view of every order instead of shouting across the counter.",
+      "A busy momo stall needed customers to order ahead and pick up without queuing, and the owner needed one live view of every order instead of shouting across the counter.",
     description:
-      "Ro-Yan Brews is a production pickup-only ordering app built for a real fast-food stall. Customers sign in with an emailed OTP or Google, order from the live menu, pay cash on pickup, and watch their order status update in real time — with a \"ready\" beep and email when it's done. The owner runs everything from a real-time dashboard: the order queue, menu and stock, an Open/Paused store switch, daily reports, and customer feedback, plus an Android app (Capacitor) with Firebase push notifications. The FastAPI backend uses a feature-based layout with WebSocket channels for live updates, SQLAlchemy over PostgreSQL, and a Pytest suite per feature; the React + Vite frontend is deployed on Vercel with the API on Render.",
+      "Mr. Momo is a production pickup-only ordering app built for a real momo stall. Customers sign in with an emailed OTP or Google, order from the live menu, choose a pickup time, pay cash on pickup, can call the stall in one tap, and watch their order status update in real time — with a \"ready\" beep and email when it's done. The owner runs everything from a real-time dashboard: the order queue, menu and stock, an Open/Paused store switch, daily reports, and customer feedback, plus an Android app (Capacitor) with Firebase push notifications. The FastAPI backend uses a feature-based layout with WebSocket channels for live updates, SQLAlchemy over PostgreSQL, and a Pytest suite per feature; the React + Vite frontend is deployed on Vercel with the API on Render.",
     tags: [
       "React",
       "Vite",
@@ -192,12 +192,13 @@ export const projects = [
     features: [
       "Email OTP and Google sign-in with JWT sessions and rate-limited codes",
       "Live order status over WebSockets, with a \"ready\" beep and email",
+      "Pickup time at checkout (now, 15, 30 or 45 min) and a \"Call the stall\" button",
       "Real-time owner dashboard: order queue, menu, stock, and store open/pause",
       "Daily reports and customer feedback for the owner",
       "Android app with Firebase push notifications via Capacitor",
       "Feature-based FastAPI backend with a Pytest suite for every feature",
     ],
-    image: royanBrewsImg,
+    image: mrMomoImg,
     github: "https://github.com/geeteshmehuria/ro-yan-brews",
     webapp: "https://ro-yan-brews.vercel.app",
     featured: false,
