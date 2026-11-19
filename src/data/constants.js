@@ -4,13 +4,13 @@ export const Bio = {
   name: "Geetesh Mehuria",
   roles: [
     "Full Stack Developer",
-    "Svelte + FastAPI Engineer",
-    "AI App Developer",
+    "Python + FastAPI Engineer",
+    "LLM Features in Production",
   ],
   experience: "2.5 Years Experience",
-  stack: "Svelte • Python • FastAPI • PostgreSQL • AI Apps",
+  stack: "Python • FastAPI • PostgreSQL • SvelteKit • LLM Integrations",
   description:
-    "Full Stack Developer with 2.5 years of experience building modern web applications, SaaS features, and AI-powered tools. I work across frontend, backend, and database layers using Svelte, React, Python, FastAPI, Node.js, PostgreSQL, MongoDB, and Tailwind CSS — with a focus on clean UI, reliable APIs, and maintainable code.",
+    "Full Stack Developer with 2.5 years building a B2B SaaS product (Perseptiv, ~500 users) on Python/FastAPI, PostgreSQL and SvelteKit. I led its 2-person migration from Wappler/Node.js to FastAPI + SvelteKit, built AI features its clients use, and took a 60-second timeout down to under 1 second. On my own I ship small real products, including an ordering app a real food stall runs on.",
   github: "https://github.com/geeteshmehuria",
   // Resume is bundled in the repo (src/components/resume) and used directly by
   // the Navbar/Hero buttons; this link is kept for reference.
@@ -41,27 +41,28 @@ export const skills = [
       "Tailwind CSS",
       "Tailwind CSS v4",
       "shadcn-svelte",
-      "Chakra UI",
+      "Next.js",
       "Bootstrap",
-      "SASS",
     ],
   },
   {
     title: "Backend",
-    items: ["Python", "FastAPI", "Node.js", "Express.js", "Java", "REST APIs"],
+    items: ["Python", "FastAPI", "SQLAlchemy", "Pydantic", "REST APIs", "WebSockets", "Node.js", "Express.js"],
   },
   {
     title: "Database",
-    items: ["PostgreSQL", "MongoDB", "MySQL", "SQL"],
+    items: ["PostgreSQL", "SQL", "Query optimisation", "pgvector", "Redis"],
   },
   {
     title: "AI / API Integration",
     items: [
-      "Gemini API",
+      "LiteLLM",
+      "OpenRouter",
       "Claude API",
+      "Gemini API",
       "OpenAI API",
-      "AI Integration",
-      "Prompt Engineering",
+      "Structured LLM output",
+      "RAG (personal project)",
     ],
   },
   {
@@ -72,8 +73,13 @@ export const skills = [
       "VS Code",
       "Postman",
       "Vercel",
-      "Netlify",
-      "Chart.js",
+      "Render",
+      "Docker",
+      "Pytest",
+      "Vitest",
+      "Playwright",
+      "Cursor",
+      "Claude Code",
     ],
   },
 ];
@@ -84,28 +90,24 @@ export const experiences = [
     role: "Full Stack Developer",
     company: "Slashash Tech LLP",
     date: "Mar 2024 - Sep 2026",
-    desc: "Worked as a Full Stack Developer on Perseptiv, a B2B retirement-plan advisory SaaS serving ~500 users, migrating it from a legacy Node.js/Express.js/Bootstrap stack to FastAPI, SvelteKit, and PostgreSQL. Built REST APIs, role-based authentication, and multi-provider LLM integrations across the full stack.",
+    desc: "Full Stack Developer on Perseptiv, a B2B retirement-plan advisory SaaS (~500 users). Led its 2-person migration from Wappler/Node.js/Bootstrap to FastAPI + SvelteKit, and built AI features now used by its clients.",
     bullets: [
-      "Migrated core Perseptiv modules from Node.js/Express.js/Bootstrap to FastAPI, SvelteKit, and PostgreSQL, contributing 1,600+ commits across a 180-router, 1,500+ endpoint backend and a 240-page frontend.",
-      "Developed REST APIs for a 32-feature backend (RFP lifecycle, plan design, vendor management, benchmarking) on a 258-table PostgreSQL schema with JSONB-based fee modeling.",
-      "Implemented session-based authentication with server-issued JWTs and two-layer RBAC enforcing 100+ distinct permission checks across tenants.",
-      "Integrated multi-provider LLM features (Claude, Gemini) via LiteLLM into 11 product areas, including RFP analysis and due-diligence document extraction.",
-      "Built 240+ SvelteKit pages and 400+ reusable components with Tailwind CSS and shadcn-svelte across 44 feature areas.",
-      "Wrote SQL migration, backfill, and diagnostic scripts for PostgreSQL schema and data fixes, keeping 135 script updates reproducible across environments.",
-      "Tested backend services and frontend logic with Pytest and Vitest across 355 backend test files covering permissions, tenant isolation, and regressions.",
+      "Led a 2-person migration of Perseptiv from Wappler/Node.js/Bootstrap to FastAPI + SvelteKit in 8 months (Jan–Aug 2026): ~340 legacy views rebuilt as 240 SvelteKit pages on 889 FastAPI endpoints, with 1,600+ commits.",
+      "Built Content Studio end-to-end (FastAPI, SvelteKit, PostgreSQL, LLM): an AI tool that generates client presentations in under 5 minutes, live with Perseptiv clients.",
+      "Built Evidence Marker Analysis: a two-pass LLM pipeline that scores vendor RFP responses against client evidence markers in under 1 minute, with structured output validated against the database.",
+      "Fixed a production endpoint that timed out at 60s for large firms: profiled it with EXPLAIN ANALYZE, added covering indexes and rewrote a lateral-join CTE, bringing it under 1 second.",
+      "Built a dev-vs-prod PostgreSQL schema diff pipeline (diff report + migration SQL) run before every release; it has caught schema mismatches before production.",
+      "Set up the test suite from scratch and wrote most of its ~2,700 Pytest tests plus Vitest frontend tests (AI-assisted), including auth and IDOR regression tests.",
+      "Fixed IDOR, JWT, SSRF and privilege-escalation vulnerabilities flagged by Aikido scanning.",
     ],
     skills: [
-      "Svelte",
-      "SvelteKit",
       "Python",
       "FastAPI",
       "PostgreSQL",
+      "SvelteKit",
+      "LiteLLM",
+      "Pytest",
       "Tailwind CSS",
-      "shadcn-svelte",
-      "JavaScript",
-      "Node.js",
-      "Express.js",
-      "Bootstrap",
     ],
   },
 ];
@@ -152,6 +154,7 @@ export const projects = [
       "Python",
       "PostgreSQL",
       "Redis",
+      "pgvector (RAG)",
       "Google Gemini",
       "Docker",
     ],
@@ -162,6 +165,7 @@ export const projects = [
       "Repository health tracking with historical trend charts",
       "GitHub OAuth with JWT refresh rotation and edge-protected routes",
       "Gemini-first AI layer with OpenAI and Claude fallbacks",
+      "RAG chat over your repo: code chunking, pgvector embeddings, retrieval and an eval script",
     ],
     image:
       "https://raw.githubusercontent.com/geeteshmehuria/devreview-ai/main/docs/screenshots/dashboard.png",
@@ -176,7 +180,7 @@ export const projects = [
     problem:
       "A busy momo stall needed customers to order ahead and pick up without queuing, and the owner needed one live view of every order instead of shouting across the counter.",
     description:
-      "Mr. Momo is a production pickup-only ordering app built for a real momo stall. Customers sign in with an emailed OTP or Google, order from the live menu, choose a pickup time, pay cash on pickup, can call the stall in one tap, and watch their order status update in real time — with a \"ready\" beep and email when it's done. The owner runs everything from a real-time dashboard: the order queue, menu and stock, an Open/Paused store switch, daily reports, and customer feedback, plus an Android app (Capacitor) with Firebase push notifications. The FastAPI backend uses a feature-based layout with WebSocket channels for live updates, SQLAlchemy over PostgreSQL, and a Pytest suite per feature; the React + Vite frontend is deployed on Vercel with the API on Render.",
+      "Mr. Momo is a live pickup-only ordering app used by a real momo stall and its customers. Customers sign in with an emailed OTP or Google, order from the live menu, choose a pickup time, pay cash on pickup, can call the stall in one tap, and watch their order status update in real time — with a \"ready\" beep and email when it's done. The owner runs everything from a real-time dashboard: the order queue, menu and stock, an Open/Paused store switch, daily reports, and customer feedback, plus an Android app (Capacitor) with Firebase push notifications. The FastAPI backend uses a feature-based layout with WebSocket channels for live updates, SQLAlchemy over PostgreSQL, and a Pytest suite per feature; the React + Vite frontend is deployed on Vercel with the API on Render.",
     tags: [
       "React",
       "Vite",
@@ -216,7 +220,7 @@ export const projects = [
       "shadcn-svelte",
       "FastAPI",
       "Python",
-      "PostgreSQL / Aiven",
+      "PostgreSQL",
       "Gemini API",
     ],
     features: [
@@ -224,7 +228,7 @@ export const projects = [
       "Topic-wise curriculum, practice problems, and a learning dashboard",
       "Spaced-repetition revision queue and progress tracking",
       "Secure JWT auth with protected pages and role-based admin access",
-      "SvelteKit frontend with a FastAPI + PostgreSQL (Aiven) backend",
+      "SvelteKit frontend with a FastAPI + PostgreSQL backend, 150 backend tests and Playwright e2e",
     ],
     image:
       "https://github.com/user-attachments/assets/1ae1911e-a264-4fec-90fb-96ec88e05abc",
@@ -264,11 +268,11 @@ export const projects = [
   {
     id: 4,
     title: "Chefbot",
-    subtitle: "Prodigies",
+    subtitle: "Team project (3 developers)",
     problem:
       "A full-stack AI recipe generator that helps users discover and create recipes with AI-powered suggestions.",
     description:
-      "A full-stack AI recipe generator that helps users discover and create recipes using AI-powered suggestions. Built with React, TypeScript, Tailwind CSS, Node.js, Express, and MongoDB, and integrating the OpenAI and DeepAI APIs to deliver a smooth and interactive cooking assistant experience.",
+      "A 3-person team project: a full-stack AI recipe generator that helps users discover and create recipes using AI-powered suggestions. Built with React, TypeScript, Tailwind CSS, Node.js, Express, and MongoDB, and integrating the OpenAI and DeepAI APIs to deliver a smooth and interactive cooking assistant experience.",
     tags: [
       "React + TypeScript",
       "Tailwind CSS",
