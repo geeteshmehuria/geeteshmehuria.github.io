@@ -1,7 +1,7 @@
 # Geetesh Mehuria — Portfolio
 
 A modern, animated personal portfolio for **Geetesh Mehuria**, a Full Stack Developer
-working with Svelte, FastAPI, Python, PostgreSQL, and AI-powered web apps.
+working with Python, FastAPI, PostgreSQL, and LLM integrations (SvelteKit/React on the frontend).
 
 ### 🔗 Live: [geeteshmehuria.github.io](https://geeteshmehuria.github.io/)
 
