@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.99115b42.css",
-    "main.js": "/static/js/main.1e559cdf.js",
+    "main.js": "/static/js/main.74ade89d.js",
     "static/media/HeroImage.jpg": "/static/media/HeroImage.e4e4a12155214b0f4601.jpg",
     "static/media/mr-momo.png": "/static/media/mr-momo.8999a284323b91a75413.png",
     "static/media/Geetesh-Mehuria-Resume.pdf": "/static/media/Geetesh-Mehuria-Resume.a0b5414acbe72b92390d.pdf",
     "index.html": "/index.html",
     "main.99115b42.css.map": "/static/css/main.99115b42.css.map",
-    "main.1e559cdf.js.map": "/static/js/main.1e559cdf.js.map"
+    "main.74ade89d.js.map": "/static/js/main.74ade89d.js.map"
   },
   "entrypoints": [
     "static/css/main.99115b42.css",
-    "static/js/main.1e559cdf.js"
+    "static/js/main.74ade89d.js"
   ]
 }
